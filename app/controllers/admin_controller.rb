@@ -9,18 +9,18 @@ class AdminController < ApplicationController
         session[:user_id] = user.id
 
         puts "Logged in"
-        flash[:notice] = 'Successfully logged in'
+        flash[:notice] = 'admin.login.successful'
         redirect_to '/'
       else
         puts "Failed"
-        flash.now[:notice] = 'Login failed'
+        flash.now[:notice] = 'admin.login.unsuccessful'
       end
     end
   end
 
   def logout
     session[:user_id] = nil
-    flash[:notice] = 'Logged out'
+    flash[:notice] = 'admin.logout'
 
     redirect_to '/'
   end
@@ -50,7 +50,7 @@ class AdminController < ApplicationController
 
   def auto_book
     if request.post?
-      message = '<ul>'
+      @message = '<ul>'
 
       date = Date.today
       @booking = Booking.new
@@ -63,16 +63,15 @@ class AdminController < ApplicationController
       while date <= term_end do
         if week(date) == params[:week].to_i && date.wday == params[:day].to_i
           @booking.date = date
-          message << "<li>You made a booking on #{date.strftime('%A, %d %B %Y')}</li>"
+          @message << "<li>" + I18n.t('booking.auto_book.made', :time => date.strftime('%d/%m/%Y')) + "</li>"
           @booking.save
         end
 
         date = date.tomorrow
       end
 
-      message << "</ul>"
-      message.html_safe
-      flash.now[:notice] = message
+      @message << "</ul>"
+      @message.html_safe
     end
   end
 end

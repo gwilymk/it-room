@@ -58,7 +58,7 @@
     #main-content
       - if flash[:notice]
         #notice-dialog{:title => I18n.t('layout.notice.title')}
-          != I18n.t flash[:notice]
+          != I18n.t flash[:notice] || @message
       #dialog_space
         #dialog_contents
           %br

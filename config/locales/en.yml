@@ -34,6 +34,8 @@ en:
       username: "Username:"
       password: "Password:"
       login: "Login"
+      successful: "Logged in"
+      unsuccessful: "Login failed, please try again"
 
   preferences:
     change_password: "Change Password"
@@ -106,6 +108,9 @@ en:
     my_bookings:
       no_bookings: "You have no bookings, sorry :("
       title: "Booking"
+
+    auto_book:
+      made: "You made a booking at %{time}"
 
   application:
     authorize:
