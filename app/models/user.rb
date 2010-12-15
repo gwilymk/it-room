@@ -17,11 +17,12 @@ class User < ActiveRecord::Base
   ]
 
   before_validation :on => :create do
-    create_new_salt
-
-    users_password = Digest::SHA1.hexdigest(rand.to_s)[0,7]
-    self.password = users_password
-    Notifier.password_notification(self).deliver
+    unless @password
+      create_new_salt
+      users_password = Digest::SHA1.hexdigest(rand.to_s)[0,7]
+      self.password = users_password
+      Notifier.password_notification(self).deliver
+    end
   end
 
   validates :username, :uniqueness => true, :presence => true
