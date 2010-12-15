@@ -17,10 +17,9 @@ class User < ActiveRecord::Base
   ]
 
   before_validation :on => :create do
+    create_new_salt
+
     users_password = Digest::SHA1.hexdigest(rand.to_s)[0,7]
-
-    puts users_password
-
     self.password = users_password
     Notifier.password_notification(self).deliver
   end
@@ -50,6 +49,8 @@ class User < ActiveRecord::Base
   def password= pwd
     @password = pwd
     return if pwd.blank?
+    create_new_salt
+
     self.hashed_password = User.encrypted_password self.password, self.salt
   end
 

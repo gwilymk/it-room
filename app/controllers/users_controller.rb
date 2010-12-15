@@ -20,7 +20,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    @user.create_new_salt
 
     if @user.save
       flash[:notice] = 'User was successfully created.'
