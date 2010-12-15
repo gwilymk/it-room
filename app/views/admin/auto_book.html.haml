@@ -1,0 +1,21 @@
+= form_tag :action => 'auto_book' do
+  %table#booking-table
+    %tr
+      %th= I18n.t('auto_book.form.room')
+      %th
+        = select_tag :room, Room.all.map{|room| "<option value=#{room.id}>#{room.name}</option>"}.join.html_safe
+      %th= I18n.t('auto_book.form.user')
+      %th
+        = select_tag :user, User.order('name').map{|user| "<option value=#{user.id}>#{user.name}</option>"}.join.html_safe
+      %th= I18n.t('auto_book.form.lesson_number')
+      %th
+        = select_tag :lesson_number, options_for_select(Booking::LESSON_NUMBERS)
+      %th= I18n.t('auto_book.form.week')
+      %th
+        = select_tag :week, [1, 2].map{|i|"<option value=#{i}> #{i} </option>"}.join.html_safe
+      %th= I18n.t('auto_book.form.day')
+      %th
+        = select_tag :day, I18n.t('date.day_names').map_with_index{|day, i| "<option value=#{i}>#{day}</option>" unless i == 0 || i == 6}.compact.join.html_safe
+      %th
+        = submit_tag I18n.t('auto_book.form.submit'), :class => 'button'
+

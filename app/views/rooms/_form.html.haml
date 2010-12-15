@@ -1,0 +1,20 @@
+= form_for @room, :id => 'form' do |f|
+  = if @room.errors.any?
+
+    #error_explanation{:title => 'Error'}
+      %h2= pluralize(@room.errors.count, "error") + " prohibited this room from being saved:"
+      %ul
+      - @room.errors.full_messages.each do |msg|
+        %li= msg
+
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+  .field
+    = f.label :number_of_computers
+    %br
+    = f.text_field :number_of_computers
+  .actions
+    = f.submit :class => 'button'
+

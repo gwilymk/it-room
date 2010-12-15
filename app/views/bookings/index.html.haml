@@ -1,0 +1,22 @@
+= form_for @booking, :remote => true, :id => 'booking-form' do |f|
+  %table#booking-table
+    %tr
+      %th= I18n.t('booking.index.number_of_pupils')
+      %th
+        = f.text_field :number_of_computers, :class => 'nop'
+        #nop-slider
+      %th= I18n.t('booking.index.lesson_number')
+      %th
+        = f.select :lesson_number, Booking::LESSON_NUMBERS.map{|a,b| "<option value=#{b}>" + a + "</option>"}.join.html_safe
+      %th= I18n.t('booking.index.date')
+      %th
+        = f.text_field :date, :id => 'date-select'
+      %th
+        = f.submit "Go!", :class => 'button'
+
+#bookings
+  = link_to I18n.t('booking.index.my_bookings'), {:action => 'my_bookings'}, :class => 'button'
+
+#search
+  %br
+

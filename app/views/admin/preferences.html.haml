@@ -1,0 +1,25 @@
+= form_for @user, :id => 'form' do |f|
+  .field
+    = f.label :name, I18n.t('admin.preferences.name')
+    %br
+    = f.text_field :name
+
+  %p.button#change_password= I18n.t "preferences.change_password"
+
+  .actions
+    = f.submit I18n.t('preferences.submit'), :class => 'button'
+
+#change_password_dialog{:title => I18n.t('preferences.change_password')}
+  = form_for @user, :id => 'form' do |f|
+    .field
+      = f.label :password, I18n.t('admin.preferences.password')
+      %br
+      = f.password_field :password
+
+    .field
+      = f.label :password_confirmation, I18n.t('admin.preferences.password_confirmation')
+      %br
+      = f.password_field :password_confirmation
+
+      = f.submit I18n.t('preferences.submit'), :class => 'button'
+

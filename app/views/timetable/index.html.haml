@@ -1,0 +1,15 @@
+= form_tag '/timetable/show', :remote => true, :id => 'booking-form' do
+  %table#booking-table
+    %tr
+      %th= I18n.t('timetable.form.room')
+      %th
+        = select_tag :room, Room.all.map{|room| "<option value=#{room.id}>#{room.name}</option>"}.join.html_safe
+      %th= I18n.t('timetable.form.date')
+      %th
+        = text_field_tag 'date-select'
+      %th
+        = submit_tag I18n.t('timetable.form.submit'), :class => 'button'
+
+#results
+  %br
+

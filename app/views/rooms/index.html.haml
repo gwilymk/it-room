@@ -1,0 +1,28 @@
+%table#database-view
+  %tr
+    %th
+      %b Name
+    %th
+      %b Number of computers
+    %th
+
+  - @rooms.each do |room|
+    %tr
+      %td.data-1= room.name
+      %td.data-2= room.number_of_computers
+      %td.data-1
+        = link_to "Edit", edit_room_path(room), :class => 'button', :remote => true
+        = link_to "Delete", room, :method => :delete, :class => 'button confirmation_needed', :remote => true
+
+  %tr
+    %td
+    %td
+    %td.data-1= link_to "New Room", new_room_path, :class => 'button', :remote => true
+
+= form_tag '', :method => :delete, :style => 'display: none', :id => 'confirm_form' do
+  %br
+
+
+.confirm{ :title => 'Confirm' }
+  %p Are you sure?
+

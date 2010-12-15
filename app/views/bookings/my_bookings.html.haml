@@ -1,0 +1,21 @@
+- if @bookings.first
+  %table#results
+    %tr
+      %th{:colspan => 4}= I18n.t('booking.my_bookings.title')
+
+    %tr
+      %th Room
+      %th Date
+      %th Lesson Number
+      %th Number of Pupils
+
+    - @bookings.each do |booking|
+      %tr
+        %td.data-1= Room.find(booking.room_id).name
+        %td.data-2= booking.date.to_date.strftime("%A, %d %B %Y")
+        %td.data-1= booking.lesson_number
+        %td.data-2= booking.number_of_computers
+        %td.data-1= link_to "Delete", {:controller => 'bookings', :action => 'delete', :id => booking}, :method => "delete", :class => 'button'
+- else
+  %p= I18n.t('booking.my_bookings.no_bookings')
+

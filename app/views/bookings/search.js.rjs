@@ -1,0 +1,5 @@
+page['#search'].hide("blind")
+page['#search'].replace_with(render :partial => 'search')
+page['#search'].show("blind")
+page['.button'].button
+

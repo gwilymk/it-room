@@ -1,0 +1,139 @@
+en:
+  attributes:
+    created_at: "Created at"
+    updated_at: "Updated at"
+
+  activerecord:
+    models:
+      user: "User"
+      room: "Room"
+      booking: "Booking"
+
+    attributes:
+      name: "Name"
+      username: "Username"
+      password: "Password"
+      password_confirmation: "Confirm Password"
+
+    errors:
+      messages:
+        taken: "has already been taken"
+        record_invalid: "Validation failed: %{errors}"
+
+  admin:
+    preferences:
+      password: "New Password"
+      password_confirmation: "Confirm Password"
+      name: "Name"
+
+    change_end_term:
+      save: "Save Changes"
+
+    login:
+      message: "Please log in"
+      username: "Username:"
+      password: "Password:"
+      login: "Login"
+
+  preferences:
+    change_password: "Change Password"
+    submit: "Update"
+
+  language:
+    changed: "Language was changed"
+
+  timetable:
+    form:
+      room: "Room"
+      date: "Date"
+      submit: "Go!"
+
+    timetable:
+      lesson: "Lesson"
+      week: "(week %{week})"
+
+  date:
+    day_names_short: ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"]
+    day_names: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    month_names: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+  layout:
+    header:
+      title: "Llanfyllin High School IT Room Booking"
+
+    notice:
+      title: "Notice"
+
+    sidebar:
+      logged_in: "Logged in as %{user}"
+
+      home: "Home"
+      timetable: "Timetable"
+      login: "Login"
+      settings: "Settings"
+      bookings: "Bookings"
+      logout: "Logout"
+      auto_book: "Auto Book"
+      rooms: "Rooms"
+      users: "Users"
+
+    title:
+      one: "Llanfyllin High School"
+      two: "IT Booking System"
+
+  booking:
+    book:
+      success: "Booking was successful"
+      not_success: "Booking was unsucessful"
+
+    delete:
+      deleted: "Booking was deleted"
+      fail: "An error occured when trying to delete to booking"
+
+    index:
+      number_of_pupils: "Number of pupils"
+      lesson_number: "Lesson number"
+      date: "Date"
+
+      my_bookings: "My Bookings"
+
+    search:
+      book: "Book Now!"
+      no_results: "No results were found"
+      room: "Room"
+      places: "Places"
+
+    my_bookings:
+      no_bookings: "You have no bookings, sorry :("
+      title: "Booking"
+
+  application:
+    authorize:
+      not_authorized: "You are not authorized to access this URL"
+      login: "You must login before you can do this"
+
+  errors:
+    error: "Error"
+
+  user:
+    update: "User was updated"
+
+  auto_book:
+    form:
+      room: "Room"
+      user: "User"
+      lesson_number: "Lesson Number"
+      week: "Week"
+      day: "Day"
+      submit: "Go!"
+
+  welcome:
+    index:
+      welcome: "Welcome"
+      message: "This is my awesome it room booking system."
+
+      info: "It is currently week %{week} and there are %{days} days until the end of term."
+
+      week_change: "Week not correct?"
+      end_of_term_change: "End of term not correct?"
+

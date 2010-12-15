@@ -1,0 +1,11 @@
+%h1= I18n.t 'welcome.index.welcome'
+
+%p= I18n.t 'welcome.index.message'
+
+%p
+  = I18n.t 'welcome.index.info', :week => week, :days => days_until_end
+
+  - if session[:user_id] && User.find(session[:user_id]).access_level >= 3
+    = link_to I18n.t("welcome.index.week_change"), :controller => 'admin', :action => 'change_week'
+    = link_to I18n.t("welcome.index.end_of_term_change"), :controller => 'admin', :action => 'change_end_term'
+

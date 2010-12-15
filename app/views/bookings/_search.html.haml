@@ -1,0 +1,21 @@
+#search
+  %table#results
+    - if @results.empty?
+      %p#no-results= I18n.t('booking.search.no_results')
+    - else
+      %th= I18n.t('booking.search.room')
+      %th= I18n.t('booking.search.places')
+      %th
+      - @results.each do |result|
+        %tr
+          %td.data-1= result[:room]
+          %td.data-2= result[:places]
+          %td.data-1
+            %p
+              = form_tag '/bookings/book' do
+                = hidden_field_tag :room, result[:room_id]
+                = hidden_field_tag :date, result[:date]
+                = hidden_field_tag :number_of_computers, result[:number_of_computers]
+                = hidden_field_tag :lesson_number, result[:lesson_number]
+                = submit_tag I18n.t('booking.search.book'), :class => 'button'
+
