@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   before_filter :localize
+  before_filter :get_bookings
 
   protect_from_forgery
 
@@ -15,6 +16,13 @@ class ApplicationController < ActionController::Base
 
     session[:locale] = params[:locale] if params[:locale] # params overrights user
     I18n.locale = session[:locale]
+  end
+
+  def get_bookings
+  	if session[:user_id]
+  		@bookings_today = Booking.where(:user_id => session[:user_id], :date => Date.today).order(:lesson_number)
+  		puts @bookings_today
+  	end
   end
 
   def authorize_user access

@@ -1,7 +1,7 @@
 body {
   background-color: white;
   color: #333333; }
-  body p, body ol, body ul, body td {
+  body p, body ol, body ul, body td, body li {
     font-family: arial, helvetica, sans-serif;
     font-size: 13px;
     line-height: 18px; }

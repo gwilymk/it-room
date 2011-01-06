@@ -22,10 +22,10 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
-      flash[:notice] = 'User was successfully created.'
+      flash[:notice] = ("NO TRANSLATE" + 'User was successfully created.')
       redirect_to :action => 'index'
     else
-      flash[:notice] = error_messages @user
+      flash[:notice] = ("NO TRANSLATE" + error_messages(@user))
       redirect_to :action => 'index'
     end
   end
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
 
     if @user.update_attributes(params[:user])
-      flash[:notice] = I18n.t('user.update')
+      flash[:notice] = 'user.update'
     else
       flash[:notice] = error_messages @user
     end
@@ -45,12 +45,12 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if params[:id] == session[:user_id]
-      flash[:notice] = 'Cannot delete own user'
+      flash[:notice] = ("NO TRANSLATE" + 'Cannot delete own user')
       redirect_to :action => 'index'
     end
     @user.destroy
 
-    flash[:notice] = 'User was deleted'
+    flash[:notice] = ("NO TRANSLATE" + 'User was deleted')
     redirect_to :action => 'index'
   end
 

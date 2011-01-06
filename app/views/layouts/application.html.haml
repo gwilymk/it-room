@@ -36,6 +36,17 @@
         %p
           = I18n.t('layout.sidebar.logged_in', :user => user.name)
 
+        #todays_bookings
+          %p
+            - unless @bookings_today.blank?
+              = I18n.t('layout.sidebar.today_bookings')
+              %ul#today_booking-table
+              - @bookings_today.each do |booking|
+                %li= I18n.t('layout.sidebar.lesson_number', :lesson => booking.lesson_number.to_s, :room => Room.find(booking.room_id).name)
+            - else
+              = I18n.t('layout.sidebar.no_bookings')
+
+
       = link_to I18n.t('layout.sidebar.home'), {:controller => 'welcome', :action => 'index'}, :class => 'button'
       %br
       = link_to I18n.t('layout.sidebar.timetable'), {:controller => 'timetable', :action => 'index'}, :class => 'button'
@@ -58,7 +69,14 @@
     #main-content
       - if flash[:notice]
         #notice-dialog{:title => I18n.t('layout.notice.title')}
-          != I18n.t flash[:notice] || @message
+          - if @message
+            = @message
+          - else
+            - puts flash[:notice]
+            - if /(NO TRANSLATE)(.*)/ =~ flash[:notice].to_s
+              != Regexp.last_match[2]
+            - else
+              = I18n.t flash[:notice]
       #dialog_space
         #dialog_contents
           %br

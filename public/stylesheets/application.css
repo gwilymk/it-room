@@ -29,6 +29,8 @@
   #sidebar .button {
     margin-bottom: 5px;
     margin-top: 5px; }
+  #sidebar #todays_bookings {
+    border: 5px bold; }
 
 #main-content {
   margin-left: 190px; }

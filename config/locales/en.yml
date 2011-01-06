@@ -78,6 +78,9 @@ en:
       auto_book: "Auto Book"
       rooms: "Rooms"
       users: "Users"
+      today_bookings: "You have the following bookings today:"
+      lesson_number: "Lesson %{lesson} in %{room}"
+      no_bookings: "You have no bookings today"
 
     title:
       one: "Llanfyllin High School"
