@@ -3,7 +3,7 @@
     %tr
       %th{:colspan => 6}
         = @room
-        = I18n.t 'timetable.timetable.week', :week => week
+        = I18n.t 'timetable.timetable.week', :week => @week
     %tr
       %td.data-1= I18n.t('timetable.timetable.lesson')
       %td.data-2= I18n.t('date.day_names')[1]

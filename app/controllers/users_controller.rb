@@ -68,5 +68,10 @@ class UsersController < ApplicationController
     session[:user_id] = params[:user_id]
     redirect_to '/'
   end
+
+  def search
+    @users = User.where("username LIKE ? OR name LIKE ?", "%" + params[:query] + "%", "%" + params[:query] + "%")
+    render :action => 'index'
+  end
 end
 

@@ -19,6 +19,8 @@ en:
       messages:
         taken: "has already been taken"
         record_invalid: "Validation failed: %{errors}"
+        invalid_date: "Has an invalid date"
+        no_space: "There is not enough space in that IT room for your class"
 
   admin:
     preferences:
@@ -36,6 +38,8 @@ en:
       login: "Login"
       successful: "Logged in"
       unsuccessful: "Login failed, please try again"
+
+    logout: "Successfully logged out"
 
   preferences:
     change_password: "Change Password"

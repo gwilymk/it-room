@@ -19,6 +19,8 @@ class TimetableController < ApplicationController
       @date = @date.tomorrow
     end
 
+    @week = week @date
+
     respond_to do |format|
       format.js
     end

@@ -67,12 +67,11 @@
           = link_to I18n.t('layout.sidebar.users'), {:controller => 'users', :action => 'index'}, :class => 'button'
 
     #main-content
-      - if flash[:notice]
+      - if flash[:notice] || @message
         #notice-dialog{:title => I18n.t('layout.notice.title')}
           - if @message
-            = @message
-          - else
-            - puts flash[:notice]
+            != @message
+          - elsif flash[:notice]
             - if /(NO TRANSLATE)(.*)/ =~ flash[:notice].to_s
               != Regexp.last_match[2]
             - else

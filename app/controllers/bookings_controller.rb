@@ -34,8 +34,6 @@ class BookingsController < ApplicationController
   def book
     @booking = Booking.new
 
-    puts params
-
     @booking.room = Room.find(params[:room].to_i)
     @booking.user = User.find(session[:user_id])
     @booking.date = params[:date].to_date

@@ -1,6 +1,2 @@
-page['.button'].button
-
-page['#results'].hide('blind')
-page['#results'].replace_with(render :partial => 'results')
-page['#results'].show('blind')
+page.call("pretty_effect", "#results", render(:partial => 'results'))
 

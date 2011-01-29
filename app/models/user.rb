@@ -7,7 +7,7 @@ class PasswordNonBlankValidator < ActiveModel::EachValidator
 end
 
 class User < ActiveRecord::Base
-  has_many :bookings
+  has_many :bookings, :dependent => :destroy
 
   ACCESS_LEVELS = [
     # Displayed             stored in db

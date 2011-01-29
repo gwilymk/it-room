@@ -21,7 +21,7 @@ class RoomsController < ApplicationController
     @room = Room.new(params[:room])
 
     if @room.save
-      flash[:notice] = 'Room was successfully created.'
+      flash[:notice] = notranslate 'Room was successfully created.'
       redirect_to :action => 'index'
     else
       flash[:notice] = error_messages @room

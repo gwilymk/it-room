@@ -2,6 +2,24 @@ function submitForms() {
   $('#booking-form').submit();
 }
 
+selector_pretty = "";
+replace_pretty = ""
+
+function pretty_effect(selector, replace_with) {
+  selector_pretty = selector;
+  replace_pretty = replace_with;
+
+  $(selector).hide("blind", {}, 300, pretty_effect2);
+}
+
+function pretty_effect2() {
+  setTimeout(function() {
+    $(selector_pretty).replaceWith(replace_pretty);
+    $('.button').button();
+    $(selector_pretty).show("blind", {}, 600);
+  }, 10);
+}
+
 $(document).ready(function() {
   $('#error_explanation, #notice-dialog').dialog({
     modal: true,
@@ -96,6 +114,10 @@ $(document).ready(function() {
 
   $('#change_password').click(function(e) {
      $('#change_password_dialog').dialog('open');
+  });
+
+  $(document).bind('keydown', 'alt+g', function() {
+    $('#search_users').focus();
   });
 });
 

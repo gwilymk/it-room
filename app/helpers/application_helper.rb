@@ -35,5 +35,9 @@ module ApplicationHelper
   def days_until_end
     term_end.to_date.yday - Date.today.yday
   end
+
+  def notranslate string
+  	"NO TRANSLATE#{string}"
+  end
 end
 

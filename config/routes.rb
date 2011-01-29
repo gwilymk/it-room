@@ -16,6 +16,7 @@ ItRoom::Application.routes.draw do
 
   resources :users
   post "users/log_in_as/:user_id", :to => "users#log_in_as"
+  post "users/search"
 
   resources :rooms
 
