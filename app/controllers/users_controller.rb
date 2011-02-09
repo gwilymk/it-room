@@ -70,7 +70,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.where("username LIKE ? OR name LIKE ?", "%" + params[:query] + "%", "%" + params[:query] + "%")
+    @users = User.where("username LIKE ? OR name LIKE ?", "%" + params[:query] + "%", "%" + params[:query] + "%").order("username")
     render :action => 'index'
   end
 end

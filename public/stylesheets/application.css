@@ -12,11 +12,10 @@
     font: small-caps 40px/35px "Times New Roman", serif; }
   #header img {
     width: 128;
-    height: 88; }
+    height: 88;
+    display: inline; }
   #header #header_image-1 {
     float: left; }
-  #header img {
-    display: inline; }
   #header #header_image-2 {
     float: right; }
 

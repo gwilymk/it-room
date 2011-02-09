@@ -21,7 +21,6 @@ class ApplicationController < ActionController::Base
   def get_bookings
   	if session[:user_id]
   		@bookings_today = Booking.where(:user_id => session[:user_id], :date => Date.today).order(:lesson_number)
-  		puts @bookings_today
   	end
   end
 

@@ -25,3 +25,7 @@
         %td.data-2
           != format_bookings @bookings_for_table[4].where(:lesson_number => i)
 
+    - unless @printer_friendly
+      %td{:colspan => 6}
+        = link_to I18n.t('timetable.form.printer_friendly'), params.merge({:controller => 'timetable', :action => 'show', :printer_friendly => true}), :class => 'button'
+

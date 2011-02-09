@@ -4,10 +4,11 @@ class TimetableController < ApplicationController
   end
 
   def show
+    @printer_friendly = params[:printer_friendly]
+
     @date = params['date-select'].to_date
-    until @date.monday?
-      @date = @date.yesterday
-    end
+
+    @date = @date.yesterday until @date.monday?
 
     @bookings = Booking.where(:room_id => params['room'])
     @room = Room.find(params['room']).name
@@ -21,8 +22,8 @@ class TimetableController < ApplicationController
 
     @week = week @date
 
-    respond_to do |format|
-      format.js
+    if @printer_friendly
+      render "show", :layout => false
     end
   end
 end

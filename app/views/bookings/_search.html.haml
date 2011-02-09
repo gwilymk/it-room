@@ -1,6 +1,6 @@
 #search
   %table#results
-    - if @results.empty?
+    - unless @results.first
       %p#no-results= I18n.t('booking.search.no_results')
     - else
       %th= I18n.t('booking.search.room')
