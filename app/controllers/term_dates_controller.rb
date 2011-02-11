@@ -19,8 +19,8 @@ class TermDatesController < ApplicationController
 
   def create
     @term_date = TermDate.new(params[:term_date])
-    @term_date.term_begin = format_date params[:term_date][:term_begin].to_date
-    @term_date.term_end = format_date params[:term_date][:term_end].to_date
+    @term_date.term_begin = params[:term_date][:term_begin].to_date
+    @term_date.term_end = params[:term_date][:term_end].to_date
 
     if @term_date.save
       flash[:notice] = notranslate 'Term date was successfully created.'
