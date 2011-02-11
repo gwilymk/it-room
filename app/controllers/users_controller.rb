@@ -44,9 +44,10 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    if params[:id] == session[:user_id]
+    if params[:id].to_i == session[:user_id].to_i
       flash[:notice] = notranslate 'Cannot delete own user'
       redirect_to :action => 'index'
+      return
     end
     @user.destroy
 
