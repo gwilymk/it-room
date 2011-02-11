@@ -21,7 +21,11 @@ class User < ActiveRecord::Base
       create_new_salt
       users_password = Digest::SHA1.hexdigest(rand.to_s)[0,7]
       self.password = users_password
-      Notifier.password_notification(self).deliver
+      begin
+        Notifier.password_notification(self, users_password).deliver
+      rescue
+        flash[:notice] = notranslate "User cannot be emailed"
+      end
     end
   end
 
