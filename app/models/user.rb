@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
       begin
         Notifier.password_notification(self, users_password).deliver
       rescue
-        flash[:notice] = notranslate "User cannot be emailed"
+
       end
     end
   end
