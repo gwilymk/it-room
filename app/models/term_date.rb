@@ -1,5 +1,7 @@
 class TermDate < ActiveRecord::Base
   validates :week_start, :presence => true, :numericality => {:only_integer => true}, :inclusion => {:in => 1..2, :message => "Week must be 1 or 2"}
+  validates :term_begin, :date => true
+  validates :term_end, :date => true
 
   def self.default_term
     TermDate.new(:term_begin => Date.today, :term_end => Date.today, :week_start => 1)

@@ -36,7 +36,7 @@ class TermDatesController < ApplicationController
       flash[:notice] = notranslate 'Term date was successfully updated'
       redirect_to :action => 'index'
     else
-      flash[:notice] = error_messages @term_date
+      flash[:notice] = notranslate error_messages @term_date
       redirect_to :action => 'index'
     end
   end

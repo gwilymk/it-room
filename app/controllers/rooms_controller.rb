@@ -36,7 +36,7 @@ class RoomsController < ApplicationController
       flash[:notice] = 'Room was successfully updated'
       redirect_to :action => 'index'
     else
-      flash[:notice] = error_messages @room
+      flash[:notice] = notranslate error_messages @room
       redirect_to :action => 'index'
     end
   end

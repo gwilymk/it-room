@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       flash[:notice] = 'user.update'
     else
-      flash[:notice] = error_messages @user
+      flash[:notice] = notranslate error_messages @user
     end
 
     redirect_to :controller => 'admin', :action => 'preferences'
@@ -45,12 +45,12 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if params[:id] == session[:user_id]
-      flash[:notice] = ("NO TRANSLATE" + 'Cannot delete own user')
+      flash[:notice] = notranslate 'Cannot delete own user'
       redirect_to :action => 'index'
     end
     @user.destroy
 
-    flash[:notice] = ("NO TRANSLATE" + 'User was deleted')
+    flash[:notice] = notranslate 'User was deleted'
     redirect_to :action => 'index'
   end
 
