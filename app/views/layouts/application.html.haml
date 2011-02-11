@@ -65,6 +65,8 @@
           = link_to I18n.t('layout.sidebar.rooms'), {:controller => 'rooms', :action => 'index'}, :class => 'button'
           %br
           = link_to I18n.t('layout.sidebar.users'), {:controller => 'users', :action => 'index'}, :class => 'button'
+          %br
+          = link_to I18n.t('layout.sidebar.term_dates'), {:controller => 'term_dates', :action => 'index'}, :class => 'button'
 
     #main-content
       - if flash[:notice] || @message

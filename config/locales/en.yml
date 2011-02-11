@@ -86,6 +86,7 @@ en:
       today_bookings: "You have the following bookings today:"
       lesson_number: "Lesson %{lesson} in %{room}"
       no_bookings: "You have no bookings today"
+      term_dates: "Term Dates"
 
     title:
       one: "Llanfyllin High School"
