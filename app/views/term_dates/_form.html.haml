@@ -1,0 +1,36 @@
+:javascript
+  $(document).ready(function() {
+    $('.change_date').datepicker({
+      dateFormat: 'dd/mm/yy',
+      numberOfMonths: 3,
+      showButtonPanel: true,
+
+      dayNamesMin: day_names,
+      monthNames: month_names
+    });
+  });
+
+= form_for @term_date, :id => 'form' do |f|
+  = if @term_date.errors.any?
+
+    #error_explanation{:title => 'Error'}
+      %h2= pluralize(@term_date.errors.count, "error") + " prohibited this term date from being saved:"
+      %ul
+      - @term_date.errors.full_messages.each do |msg|
+        %li= msg
+
+  .field
+    = f.label :term_begin
+    %br
+    = f.text_field :term_begin, :class => 'change_date'
+  .field
+    = f.label :term_end
+    %br
+    = f.text_field :term_end, :class => 'change_date'
+  .field
+    = f.label :week_start
+    %br
+    = f.text_field :week_start
+  .actions
+    = f.submit :class => 'button'
+

@@ -1,0 +1,4 @@
+page["#dialog_contents"].replace_with(render :partial => 'new')
+page["#dialog_space"].dialog("open")
+page[".button"].button
+

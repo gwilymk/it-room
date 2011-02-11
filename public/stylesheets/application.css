@@ -24,10 +24,12 @@
   float: left;
   padding: 1em;
   background: #01481c;
+  text-align: center;
   color: white; }
   #sidebar .button {
     margin-bottom: 5px;
-    margin-top: 5px; }
+    margin-top: 5px;
+    width: 95%; }
   #sidebar #todays_bookings {
     border: 5px bold; }
 

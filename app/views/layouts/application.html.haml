@@ -8,7 +8,7 @@
     = javascript_include_tag :defaults
 
     :javascript
-      var end = #{days_until_end};
+      var end = #{TermDate.days_until_end};
       var day_names = #{I18n.t('date.day_names_short')};
       var month_names = #{I18n.t('date.month_names')};
 

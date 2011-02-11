@@ -2,7 +2,7 @@ class ValidDateValidator < ActiveModel::EachValidator
   include ApplicationHelper
 
   def validate_each record, attribute, value
-    unless Date.today <= record.date && record.date <= term_end
+    unless Date.today <= record.date && record.date <= TermDate.term_for(Date.today).term_end
       record.errors.add attribute, I18n.t('activerecord.errors.messages.invalid_date')
     end
   end

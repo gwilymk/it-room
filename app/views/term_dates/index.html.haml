@@ -1,0 +1,32 @@
+%table#database-view
+  %tr
+    %th
+      %b Term Beginning
+    %th
+      %b Term End
+    %th
+      %b Week Start
+    %th
+
+  - @term_dates.each do |term_date|
+    %tr
+      %td.data-1= term_date.term_begin
+      %td.data-2= term_date.term_end
+      %td.data-1= term_date.week_start
+      %td.data-2
+        = link_to "Edit", edit_term_date_path(term_date), :class => 'button', :remote => true
+        = link_to "Delete", term_date, :method => :delete, :class => 'button confirmation_needed', :remote => true
+
+  %tr
+    %td
+    %td
+    %td
+    %td.data-2= link_to "New Term", new_term_date_path, :class => 'button', :remote => true
+
+= form_tag '', :method => :delete, :style => 'display: none', :id => 'confirm_form' do
+  %br
+
+
+.confirm{ :title => 'Confirm' }
+  %p Are you sure?
+

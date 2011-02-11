@@ -41,9 +41,6 @@ module ItRoom
   end
 end
 
-APP_CONFIG_FILE = "#{Rails.root}/config/config.yml"
-APP_CONFIG = YAML.load_file APP_CONFIG_FILE
-
 LANGUAGES = {
   'English' => 'en',
   'Cymraeg' => 'cy'

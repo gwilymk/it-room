@@ -20,7 +20,7 @@ class TimetableController < ApplicationController
       @date = @date.tomorrow
     end
 
-    @week = week @date
+    @week = TermDate.week @date
 
     if @printer_friendly
       render "show", :layout => false

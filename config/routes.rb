@@ -1,4 +1,6 @@
 ItRoom::Application.routes.draw do
+  resources :term_dates
+
   get "timetable", :to => 'timetable#index'
 
   post "timetable/show"

@@ -29,28 +29,9 @@ class AdminController < ApplicationController
     @user = User.find(session[:user_id])
   end
 
-  def change_week
-    APP_CONFIG['week']['invert'] = !invert_week?
-    save_config
-
-    redirect_to '/'
-  end
-
-  def change_end_term
-    if request.post?
-      APP_CONFIG['term']['end'] = format_date(params['change_date']).to_date
-      save_config
-
-      redirect_to '/'
-    else
-      @current_end = term_end.to_date.strftime("%d/%m/%Y")
-      puts @current_end
-    end
-  end
-
   def auto_book
     if request.post?
-      @message = '<ul>'
+      @message = "<ul>"
 
       date = Date.today
       @booking = Booking.new
@@ -60,10 +41,12 @@ class AdminController < ApplicationController
 
       @booking.number_of_computers = Room.find(params[:room]).number_of_computers
 
-      while date <= term_end do
-        if week(date) == params[:week].to_i && date.wday == params[:day].to_i
+      last_day = TermDate.last_term.term_end.to_date
+
+      while date <= last_day
+        if TermDate.week(date) == params[:week].to_i && date.wday == params[:day].to_i
           @booking.date = date
-          @message << "<li>" + I18n.t('booking.auto_book.made', :time => date.strftime('%d/%m/%Y')) + "</li>"
+          @message << "<li>" + I18n.t('booking.auto_book.made', :time => "#{date.strftime('%d/%m/%Y')}") + "</li>"
           @booking.save
         end
 
