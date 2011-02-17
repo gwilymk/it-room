@@ -36,7 +36,7 @@ class BookingsController < ApplicationController
 
     @booking.room = Room.find(params[:room].to_i)
     @booking.user = User.find(session[:user_id])
-    @booking.date = params[:date].to_date
+    @booking.date = format_date(params[:date]).to_date
     @booking.number_of_computers = params[:number_of_computers].to_i
     @booking.lesson_number = params[:lesson_number].to_i
 
