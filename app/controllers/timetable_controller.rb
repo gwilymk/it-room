@@ -6,7 +6,7 @@ class TimetableController < ApplicationController
   def show
     @printer_friendly = params[:printer_friendly]
 
-    @date = params['date-select'].to_date
+    @date = format_date(params['date-select']).to_date
 
     @date = @date.yesterday until @date.monday?
 

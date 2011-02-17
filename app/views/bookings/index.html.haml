@@ -1,4 +1,4 @@
-= form_for @booking, :remote => true, :id => 'booking-form' do |f|
+= form_for @booking, :remote => true, :id => 'booking-form', :loading => "$('.submit_button').toggle(); $('.loading').toggle();", :complete => "$('.submit_button').toggle(); $('.loading').toggle();" do |f|
   %table#booking-table
     %tr
       %th= I18n.t('booking.index.number_of_pupils')
@@ -12,7 +12,8 @@
       %th
         = f.text_field :date, :id => 'date-select'
       %th
-        = f.submit "Go!", :class => 'button'
+        = f.submit "Go!", :class => 'submit_button', :class => 'button'
+        = image_tag 'ajax-loader.gif', :class => 'loading', :style => 'display: none'
 
 #bookings
   = link_to I18n.t('booking.index.my_bookings'), {:action => 'my_bookings'}, :class => 'button'

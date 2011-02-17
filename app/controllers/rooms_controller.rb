@@ -24,7 +24,7 @@ class RoomsController < ApplicationController
       flash[:notice] = notranslate 'Room was successfully created.'
       redirect_to :action => 'index'
     else
-      flash[:notice] = error_messages @room
+      flash[:notice] = notranslate error_messages @room
       redirect_to :action => 'index'
     end
   end
@@ -33,7 +33,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
 
     if @room.update_attributes(params[:room])
-      flash[:notice] = 'Room was successfully updated'
+      flash[:notice] = notranslate 'Room was successfully updated'
       redirect_to :action => 'index'
     else
       flash[:notice] = notranslate error_messages @room
@@ -45,7 +45,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @room.destroy
 
-    flash[:notice] = 'Room was deleted'
+    flash[:notice] = notranslate 'Room was deleted'
     redirect_to :action => 'index'
   end
 end

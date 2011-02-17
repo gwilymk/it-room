@@ -23,6 +23,7 @@ class Booking < ActiveRecord::Base
   belongs_to :room
 
   validates :user, :presence => true
+  validates :number_of_computers, :presence => true
   validates :room, :presence => true, :valid_space => true
   validates :date, :presence => true, :valid_date => true
 

@@ -63,8 +63,6 @@ class User < ActiveRecord::Base
     self.salt = self.object_id.to_s + rand.to_s
   end
 
-  private
-
   def self.encrypted_password password, salt
     string_to_hash = password + "sl;dkfj" + salt
     Digest::SHA1.hexdigest string_to_hash
