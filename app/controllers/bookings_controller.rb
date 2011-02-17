@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
       result = {}
 
       noc_remaining = room.number_of_computers
-      room.bookings.where(:date => params['booking']['date'].to_date, :lesson_number => params['booking']['lesson_number'].to_i).each do |booking|
+      room.bookings.where(:date => format_date(params['booking']['date']).to_date, :lesson_number => params['booking']['lesson_number'].to_i).each do |booking|
         noc_remaining -= booking.number_of_computers
       end
 

@@ -1,11 +1,12 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  term_begin: 2011-02-09
-  term_end: 2011-02-09
+  term_begin: 2010-02-09
+  term_end: 2100-03-09
   week_start: 1
 
 two:
-  term_begin: 2011-02-09
-  term_end: 2011-02-09
+  term_begin: 2101-04-09
+  term_end: 2201-05-09
   week_start: 1
+

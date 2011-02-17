@@ -1,9 +1,8 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+room3:
+  name: Room 3
+  number_of_computers: 60
 
-one:
-  name: MyString
-  number_of_computers: 1
+room64:
+  name: Room 64
+  number_of_computers: 30
 
-two:
-  name: MyString
-  number_of_computers: 1
