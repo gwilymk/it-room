@@ -9,8 +9,8 @@
 
     :javascript
       var end = #{TermDate.days_until_end};
-      var day_names = #{I18n.t('date.day_names_short')};
-      var month_names = #{I18n.t('date.month_names')};
+      var day_names = #{I18n.t('date.day_names_short').to_json};
+      var month_names = #{I18n.t('date.month_names').to_json};
 
     = javascript_include_tag 'application'
 
