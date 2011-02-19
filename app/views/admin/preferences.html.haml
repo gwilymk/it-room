@@ -12,6 +12,11 @@
 #change_password_dialog{:title => I18n.t('preferences.change_password')}
   = form_for @user, :id => 'form' do |f|
     .field
+      = f.label :old_password, I18n.t('admin.preferences.old_password')
+      %br
+      = f.password_field :old_password
+
+    .field
       = f.label :password, I18n.t('admin.preferences.password')
       %br
       = f.password_field :password

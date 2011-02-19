@@ -33,10 +33,23 @@ class UsersController < ApplicationController
   def update
     @user = User.find(session[:user_id])
 
-    if @user.update_attributes(params[:user])
-      flash[:notice] = 'user.update'
+    if params[:user][:password]
+      if User.authenticate(@user.username, params[:user][:old_password])
+        if @user.update_attributes(params[:user])
+          flash[:notice] = 'user.update'
+        else
+          flash[:notice] = notranslate error_messages @user
+        end
+      else
+        @user.errors.add(:old_password, I18n.t('activerecord.errors.messages.old_password_incorrect'))
+        flash[:notice] = notranslate error_messages @user
+      end
     else
-      flash[:notice] = notranslate error_messages @user
+      if @user.update_attributes(params[:user])
+        flash[:notice] = 'user.update'
+      else
+        flash[:notice] = notranslate error_messages @user
+      end
     end
 
     redirect_to :controller => 'admin', :action => 'preferences'

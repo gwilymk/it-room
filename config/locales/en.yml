@@ -17,9 +17,11 @@ en:
         record_invalid: "Validation failed: %{errors}"
         invalid_date: "Has an invalid date"
         no_space: "There is not enough space in that IT room for your class"
+        old_password_incorrect: "The original password is incorrect"
 
   admin:
     preferences:
+      old_password: "Old Password"
       password: "New Password"
       password_confirmation: "Confirm Password"
       name: "Name"

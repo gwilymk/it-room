@@ -51,16 +51,5 @@ class ApplicationController < ActionController::Base
   def auth5
     authorize_user 5
   end
-
-  def error_messages thing
-    notice = I18n.t("errors.error")
-    notice << "<ul>"
-    thing.errors.full_messages.each do |msg|
-      notice << "<li>" << msg << "</li>"
-    end
-    notice << "</ul>"
-
-    notice
-  end
 end
 

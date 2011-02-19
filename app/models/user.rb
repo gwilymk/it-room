@@ -67,5 +67,11 @@ class User < ActiveRecord::Base
     string_to_hash = password + "sl;dkfj" + salt
     Digest::SHA1.hexdigest string_to_hash
   end
+
+  def old_password
+  end
+
+  def old_password= pwd
+  end
 end
 
