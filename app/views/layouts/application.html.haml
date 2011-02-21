@@ -27,7 +27,7 @@
 
       - if session[:user_id]
         #change_language
-          = form_tag '/users/update_language', :method => :post do
+          = form_tag users_update_language_path, :method => :post do
             .field
               = select_tag :prefered_language, options_for_select(LANGUAGES, I18n.locale), :onchange => 'this.form.submit();'
 
@@ -47,26 +47,26 @@
               = I18n.t('layout.sidebar.no_bookings')
 
 
-      = link_to I18n.t('layout.sidebar.home'), {:controller => 'welcome', :action => 'index'}, :class => 'button'
+      = link_to I18n.t('layout.sidebar.home'), root_path, :class => 'button'
       %br
-      = link_to I18n.t('layout.sidebar.timetable'), {:controller => 'timetable', :action => 'index'}, :class => 'button'
+      = link_to I18n.t('layout.sidebar.timetable'), timetable_path, :class => 'button'
       %br
       - unless user
-        = link_to I18n.t('layout.sidebar.login'), {:controller => 'admin', :action => 'login'}, :class => 'button'
+        = link_to I18n.t('layout.sidebar.login'), admin_login_path, :class => 'button'
       - else
-        = link_to I18n.t('layout.sidebar.settings'), {:controller => 'admin', :action => 'preferences'}, :class => 'button'
-        = link_to I18n.t('layout.sidebar.bookings'), {:controller => 'bookings', :action => 'index'}, :class => 'button'
-        = link_to I18n.t('layout.sidebar.logout'), {:controller => 'admin', :action => 'logout'}, :class => 'button'
+        = link_to I18n.t('layout.sidebar.settings'), admin_preferences_path, :class => 'button'
+        = link_to I18n.t('layout.sidebar.bookings'), bookings_path, :class => 'button'
+        = link_to I18n.t('layout.sidebar.logout'), admin_logout_path, :class => 'button'
 
         - if user.access_level >= 3
-          = link_to I18n.t('layout.sidebar.auto_book'), {:controller => 'admin', :action => 'auto_book'}, :class => 'button'
+          = link_to I18n.t('layout.sidebar.auto_book'), admin_auto_book_path, :class => 'button'
 
         - if user.access_level == 5
-          = link_to I18n.t('layout.sidebar.rooms'), {:controller => 'rooms', :action => 'index'}, :class => 'button'
+          = link_to I18n.t('layout.sidebar.rooms'), rooms_path, :class => 'button'
           %br
-          = link_to I18n.t('layout.sidebar.users'), {:controller => 'users', :action => 'index'}, :class => 'button'
+          = link_to I18n.t('layout.sidebar.users'), users_path, :class => 'button'
           %br
-          = link_to I18n.t('layout.sidebar.term_dates'), {:controller => 'term_dates', :action => 'index'}, :class => 'button'
+          = link_to I18n.t('layout.sidebar.term_dates'), term_dates_path, :class => 'button'
 
     #main-content
       - if flash[:notice] || @message

@@ -13,7 +13,6 @@
         = f.text_field :date, :id => 'date-select'
       %th
         = f.submit "Go!", :class => 'submit_button', :class => 'button'
-        = image_tag 'ajax-loader.gif', :class => 'loading', :style => 'display: none'
 
 #bookings
   = link_to I18n.t('booking.index.my_bookings'), {:action => 'my_bookings'}, :class => 'button'

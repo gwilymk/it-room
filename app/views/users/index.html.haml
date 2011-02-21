@@ -12,14 +12,14 @@
     %tr
       %td.data-1= user.name
       %td.data-2= user.username
-      %td.data-1= User::ACCESS_LEVELS.map{|disp,val| disp if val == user.access_level}.uniq.select{|a| a}.first
+      %td.data-1= User::ACCESS_LEVELS.map{|disp,val| disp if val == user.access_level}.compact.first
       %td.data-2
         = link_to "Delete", user, :method => :delete, :class => 'button confirmation_needed', :remote => true
-        = link_to "Log in as", "/users/log_in_as/#{user.id}", :method => :post, :class => 'button'
+        = link_to "Log in as", "/users/log_in_as#{user.id}", :method => :post, :class => 'button'
 
   %tr
     %td{ :colspan => 3 }
-      = form_tag '/users/search' do
+      = form_tag users_search_path do
         = text_field_tag 'query', 'Search Users', :onfocus => "if(this.value == 'Search Users'){this.value = '';}", :onblur => "this.value=!this.value?'Search Users':this.value;", :id => 'search_users'
         = submit_tag 'Search', :class => :button
     %td.data-2= link_to "New User", new_user_path, :class => 'button', :remote => true

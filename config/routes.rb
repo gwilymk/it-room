@@ -6,7 +6,7 @@ ItRoom::Application.routes.draw do
   post "timetable/show"
   get "timetable/show"
 
-  get "/", :to => "welcome#index"
+  root :to => "welcome#index"
 
   get "bookings", :to => "bookings#index"
   post "bookings", :to => "bookings#search"

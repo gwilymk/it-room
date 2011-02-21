@@ -43,7 +43,7 @@ class BookingTest < ActiveSupport::TestCase
     assert !booking3.valid?
   end
 
-  test "simputanious bookings" do
+  test "simutanious bookings" do
     @booking.number_of_computers = rooms(:room3).number_of_computers - 10
 
     booking2 = new_booking

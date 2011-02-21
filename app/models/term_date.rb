@@ -13,7 +13,7 @@ class TermDate < ActiveRecord::Base
     date = date.to_date
 
     self.all.each do |td|
-      term = td if td.term_begin < date && date < td.term_end
+      term = td if td.term_begin <= date && date <= td.term_end
     end
 
     term || TermDate.default_term

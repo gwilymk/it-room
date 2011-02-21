@@ -1,4 +1,0 @@
-page["#dialog_contents"].replace_with(render :partial => 'edit')
-page["#dialog_space"].dialog("open")
-page[".button"].button
-
