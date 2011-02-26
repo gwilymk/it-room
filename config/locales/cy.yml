@@ -1,6 +1,151 @@
 cy:
+  activerecord:
+    models:
+      user: "Defnyddiwr"
+      room: "Ystafell"
+      booking: "Bwcio"
+
+    attributes:
+      name: "Enw"
+      username: "Enw defnyddiwr"
+      password: "Cyfrinair"
+      password_confirmation: "Cadarnhau Cyfrinair"
+
+    errors:
+      messages:
+        taken: "wedi’i gymryd eisoes"
+        record_invalid: "Dilysu wedi methu: %{errors}"
+        invalid_date: "Dyddiad annilys"
+        no_space: "Nid oes digon o le yn yr ystafell TG i’ch dosbarth"
+        old_password_incorrect: "Cyfrinair gwreiddiol yn anghywir"
+
+  admin:
+    preferences:
+      old_password: "Hen Gyfrinair"
+      password: "Cyfrinair Newydd"
+      password_confirmation: "Cadarnhau Cyfrinair"
+      name: "Enw"
+
+    change_end_term:
+      save: "Cadw Newidiadau"
+
+    login:
+      message: "Mewngofnodwch"
+      username: "Enw Defnyddiwr:"
+      password: "Cyfrinair:"
+      login: "Mewngofnodi"
+      successful: "Wedi mewngofnodi"
+      unsuccessful: "Mewngofnodi wedi methu, ceisiwch eto"
+
+    logout: "Wedi allgofnodi"
+
+  preferences:
+    change_password: "Newid Cyfrinair"
+    submit: "Diweddaru"
+
+  language:
+    changed: "Iaith wedi newid"
+
+  timetable:
+    form:
+      room: "Ystafell"
+      date: "Dyddiad"
+      submit: "Ewch!"
+      printer_friendly: "Fersiwn hwylus i’w argraffu"
+
+    timetable:
+      lesson: "Gwers"
+      week: "(Wythnos %{week})"
+
   date:
-    day_names_short: ["Sul", "Llun", "Mar", "Mer", "Iau", "Gwen", "Sad"]
-    day_names: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    month_names: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    day_names_short: ["Sul", "Llun", "Maw", "Mer", "Iau", "Gwe", "Sad"]
+    day_names: ["Dydd Sul", "Dydd Llun", "Dydd Mawrth", "Dydd Mercher", "Dydd Iau", "Dydd Gwener", "Dydd Sadwrn"]
+    month_names: ["Ionawr", "Chwefror", "Mawrth", "Ebrill", "Mai", "Mehefin", "Gorffennaf", "Awst", "Medi", "Hydref", "Tachwedd", "Rhagfyr"]
+
+  layout:
+    header:
+      title: "Bwcio Ystafell TG Ysgol Uwchradd Llanfyllin"
+
+    notice:
+      title: "Rhybudd"
+
+    sidebar:
+      logged_in: "Wedi mewngofnodi fel %{user}"
+
+      home: "Cartref"
+      timetable: "Amserlen"
+      login: "Mewngofnodi"
+      settings: "Gosodiadau"
+      bookings: "Wedi bwcio"
+      logout: "Allgofnodi"
+      auto_book: "Bwcio’n Awtomatig"
+      rooms: "Ystafelloedd"
+      users: "Defnyddwyr"
+      today_bookings: "Rydych wedi bwcio’r canlynol heddiw"
+      lesson_number: "Gwers %{lesson} yn %{room}"
+      no_bookings: "Dydych chi ddim wedi bwcio heddiw"
+      term_dates: "Dyddiadau Tymor"
+
+    title:
+      one: "Ysgol Uwchradd Llanfyllin"
+      two: "System Bwcio TG"
+
+  booking:
+    book:
+      success: "Wedi bwcio’n llwyddiannus"
+      not_success: "Bwcio wedi methu"
+
+    delete:
+      deleted: "Bwcio wedi’i ddileu"
+      fail: "Gwall wedi digwydd wrth geisio dileu’r bwcio"
+
+    index:
+      number_of_pupils: "Nifer y dysgyblion"
+      lesson_number: "Rhif y wers"
+      date: "Dyddiad"
+
+      my_bookings: "Hanes Bwcio"
+
+    search:
+      book: "Bwciwch Nawr!"
+      no_results: "Ni ddaeth o hyd i ganlyniadiau"
+      room: "Ystafell"
+      places: "Llefydd"
+
+    my_bookings:
+      no_bookings: "Does dim byd wedi’i fwcio yn eich enw :("
+      title: "Bwcio"
+
+    auto_book:
+      made: "Archebwyd lle gennych am %{time}"
+
+  application:
+    authorize:
+      not_authorized: "Nid oes gennych ganiatad i gyrchu’r URL hwn"
+      login: "Rhaid mewngofnodi cyn y medrwch wneud hyn"
+
+  errors:
+    error: "Gwall"
+
+  user:
+    update: "Defnyddiwr wedi’i ddiweddaru"
+
+  auto_book:
+    form:
+      room: "Ystafell"
+      user: "Defnyddiwr"
+      lesson_number: "Rhif y wers"
+      week: "Wythnos"
+      day: "Dydd"
+      submit: "Wythnos"
+
+  welcome:
+    index:
+      welcome: "Croeso"
+      message: "This is my awesome IT room booking system."
+
+      info: "Mae hi’n wythnos %{week} gyda %{week} diwrnod yn weddill cyn diwedd y tymor."
+
+      week_change: "Wythnos anghywir?"
+      end_of_term_change: "Diwedd y tymor yn anghywir?"
 
