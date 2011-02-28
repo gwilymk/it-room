@@ -42,3 +42,5 @@
   text-align: center; }
   #timetable th {
     background-color: #01481c; }
+  #timetable td {
+    width: 16%; }
