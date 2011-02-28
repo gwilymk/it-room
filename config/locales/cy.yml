@@ -144,7 +144,7 @@ cy:
       welcome: "Croeso"
       message: "This is my awesome IT room booking system."
 
-      info: "Mae hi’n wythnos %{week} gyda %{week} diwrnod yn weddill cyn diwedd y tymor."
+      info: "Mae hi’n wythnos %{week} gyda %{days} diwrnod yn weddill cyn diwedd y tymor."
 
       week_change: "Wythnos anghywir?"
       end_of_term_change: "Diwedd y tymor yn anghywir?"
