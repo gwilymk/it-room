@@ -1,20 +1,18 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.4'
+gem 'rails', '3.0.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development, :test do
-  gem 'sqlite3'
-end
+gem 'sqlite3'
 
-group :production do
-  gem 'pg'
-end
+gem 'unicorn'
 
-# Use unicorn as the web server
-# gem 'unicorn'
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+end
 
 # Deploy with Capistrano
 # gem 'capistrano'
