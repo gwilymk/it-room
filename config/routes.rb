@@ -1,4 +1,7 @@
 ItRoom::Application.routes.draw do
+  match "users/forgotten_password"
+  post "users/update_password"
+
   resources :term_dates
 
   get "timetable", :to => 'timetable#index'

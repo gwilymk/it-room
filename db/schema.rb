@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110209184009) do
+ActiveRecord::Schema.define(:version => 20110228145452) do
 
   create_table "bookings", :force => true do |t|
     t.integer  "user_id"
@@ -55,7 +55,8 @@ ActiveRecord::Schema.define(:version => 20110209184009) do
     t.string   "hashed_password"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "prefered_language", :default => "en"
+    t.string   "prefered_language",      :default => "en"
+    t.string   "forgotten_password_key"
   end
 
 end

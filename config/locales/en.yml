@@ -36,6 +36,11 @@ en:
       login: "Login"
       successful: "Logged in"
       unsuccessful: "Login failed, please try again"
+      forgotten_password: "Forgot password?"
+      forgot_password_button: "Send"
+      sent_forgotten_password_message: "You have been sent an email with a link to change your password"
+      username_does_not_exist: "The username you supplied doesn't exist"
+      reset_password: "Your password has been reset"
 
     logout: "Successfully logged out"
 

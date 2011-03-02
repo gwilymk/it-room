@@ -73,5 +73,15 @@ class User < ActiveRecord::Base
 
   def old_password= pwd
   end
+
+  def generate_forgotten_password_key
+    string_to_hash = "#{self.hashed_password}sdfasdf#{self.salt}"
+    hash = Digest::SHA1.hexdigest string_to_hash
+
+    hash << Digest::SHA1.hexdigest(rand.to_s)
+    self.forgotten_password_key = hash
+
+    hash
+  end
 end
 

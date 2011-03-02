@@ -8,5 +8,13 @@ class Notifier < ActionMailer::Base
 
     mail :to => account_email, :subject => 'New account on it-room'
   end
+
+  def forgotten_password recipient, key
+    @key = key
+    account_email = recipient.username + "@llanfyllin-hs.powys.sch.uk"
+    @account = recipient
+
+    mail :to => accont_email, :subject => I18n.t('admin.login.forgotten_password')
+  end
 end
 

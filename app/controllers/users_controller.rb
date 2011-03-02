@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :auth5, :except => [:update, :edit, :update_language]
+  before_filter :auth5, :except => [:update, :edit, :update_language, :forgotten_password, :update_password]
   before_filter :auth1, :only => [:update, :edit, :update_language]
 
   def index
@@ -86,6 +86,46 @@ class UsersController < ApplicationController
   def search
     @users = User.where("username LIKE ? OR name LIKE ?", "%" + params[:query] + "%", "%" + params[:query] + "%").order("username")
     render :action => 'index'
+  end
+
+  def forgotten_password
+    if request.post?
+      @user = User.find_by_username(params[:username])
+      unless @user
+        flash[:notice] = 'admin.login.username_does_not_exist'
+        redirect_to admin_login_path
+        return
+      end
+
+      @key = @user.generate_forgotten_password_key
+
+      puts @key
+
+      begin
+        Notifier.password_notification(@user, @key).deliver
+      rescue
+        puts "Failed to send password"
+      end
+
+      flash[:notice] = 'admin.login.sent_forgotten_password_message'
+      redirect_to root_path
+    end
+  end
+
+  def update_password
+    return unless params[:key]
+
+    if @user = User.find_by_forgotten_password_key(params[:key])
+      if @user.update_attributes(:password => params[:password], :password_confirmation => params[:password_confirmation])
+        flash[:notice] = 'admin.login.reset_password'
+        @user.forgotten_password_key = nil
+        @user.save
+        redirect_to root_path
+      else
+        flash[:notice] = 'errors.error'
+        render :action => 'forgotten_password'
+      end
+    end
   end
 end
 

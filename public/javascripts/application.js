@@ -39,6 +39,17 @@ $(document).ready(function() {
     autoOpen: false
   });
 
+  $('#forgotten_password_dialog').dialog({
+    modal: true,
+    autoOpen: false
+  });
+
+  $('#forgotten_password_button').click(function(e) {
+    $('#forgotten_password_dialog').dialog('open');
+
+    return false;
+  });
+
   $('.confirmation_needed').click(function(e) {
     $('#confirm_form').attr('action', this.href);
 

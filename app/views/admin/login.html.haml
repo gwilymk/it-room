@@ -1,15 +1,30 @@
 - form_tag do
   %h3= I18n.t('admin.login.message')
 
-  %label{:for => "username"}= I18n.t('admin.login.username')
-  = text_field_tag :username, params[:username]
+  %table#login_table
+    %tr
+      %td
+        %label{:for => "username"}= I18n.t('admin.login.username')
+      %td= text_field_tag :username, params[:username]
 
-  %br
+    %tr
+      %td
+        %label{:for => 'password'}= I18n.t('admin.login.password')
+      %td= password_field_tag :password
 
-  %label{:for => 'password'}= I18n.t('admin.login.password')
-  = password_field_tag :password
+    %tr
+      %td{:colspan => 2}= submit_tag I18n.t('admin.login.login'), :class => 'button'
 
-  %br
+#forgotten_password_dialog{:title => I18n.t('admin.login.forgotten_password')}
+  - form_tag users_forgotten_password_path do
+    %table#login_table
+      %tr
+        %td
+          %label{:for => "username"}= I18n.t('admin.login.username')
+        %td= text_field_tag :username, params[:username]
 
-  = submit_tag I18n.t('admin.login.login'), :class => 'button'
+      %tr
+        %td{:colspan => 2}= submit_tag I18n.t('admin.login.forgot_password_button'), :class => 'button'
+
+%a#forgotten_password_button{:href => '#'}= I18n.t('admin.login.forgotten_password')
 
