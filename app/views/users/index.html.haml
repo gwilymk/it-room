@@ -15,7 +15,7 @@
       %td.data-1= User::ACCESS_LEVELS.map{|disp,val| disp if val == user.access_level}.compact.first
       %td.data-2
         = link_to "Delete", user, :method => :delete, :class => 'button confirmation_needed', :remote => true
-        = link_to "Log in as", "/users/log_in_as#{user.id}", :method => :post, :class => 'button'
+        = link_to "Log in as", "/users/log_in_as/#{user.id}", :method => :post, :class => 'button'
 
   %tr
     %td{ :colspan => 3 }
