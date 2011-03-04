@@ -19,14 +19,15 @@ class ValidSpaceValidator < ActiveModel::EachValidator
 end
 
 class Booking < ActiveRecord::Base
+  LESSON_NUMBERS = [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6]]
+
   belongs_to :user
   belongs_to :room
 
   validates :user, :presence => true
+  validates :date, :presence => true, :valid_date => true
   validates :number_of_computers, :presence => true
   validates :room, :presence => true, :valid_space => true
-  validates :date, :presence => true, :valid_date => true
-
-  LESSON_NUMBERS = [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6]]
+  validates :lesson_number, :presence => true, :inclusion => {:in => LESSON_NUMBERS.map{|disp,val| val}}
 end
 
