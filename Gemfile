@@ -9,9 +9,9 @@ gem 'sqlite3'
 
 gem 'unicorn'
 
-group :test do
+group :test, :development do
   gem 'rspec'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.0'
 end
 
 # Deploy with Capistrano

@@ -94,6 +94,6 @@ DEPENDENCIES
   haml
   rails (= 3.0.5)
   rspec
-  rspec-rails
+  rspec-rails (~> 2.0)
   sqlite3
   unicorn
