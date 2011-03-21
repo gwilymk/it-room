@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   validates :access_level, :inclusion => {:in => ACCESS_LEVELS.map{|disp, val| val}}
 
   def self.authenticate name, password
-    user = self.find_by_username name
+    user = self.find_by_username(name.strip)
     if user
       expected_password = User.encrypted_password password, user.salt
 

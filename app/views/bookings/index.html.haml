@@ -1,4 +1,4 @@
-= form_for @booking, :remote => true, :id => 'booking-form', :loading => "$('.submit_button').toggle(); $('.loading').toggle();", :complete => "$('.submit_button').toggle(); $('.loading').toggle();" do |f|
+= form_for @booking, :remote => true, :id => 'booking-form' do |f|
   %table#booking-table
     %tr
       %th= I18n.t('booking.index.number_of_pupils')
