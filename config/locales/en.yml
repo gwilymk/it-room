@@ -154,3 +154,6 @@ en:
       week_change: "Week not correct?"
       end_of_term_change: "End of term not correct?"
 
+  timetable:
+    places_remaining: "%{number} places remaining"
+
