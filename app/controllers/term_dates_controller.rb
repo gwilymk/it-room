@@ -44,23 +44,36 @@ class TermDatesController < ApplicationController
     end
   end
 
+  # This will update the term date with the changed attributes. This will be
+  # used if the term date was entered incorrectly and/or dates were changed.
   def update
+    # find the term_dates
     @term_date = TermDate.find(params[:id])
 
+    # update the attributes
     if @term_date.update_attributes(params[:term_date])
+      # tell them it worked
       flash[:notice] = notranslate 'Term date was successfully updated'
+      # and redirect
       redirect_to :action => 'index'
     else
-      flash[:notice] = notranslate error_messages @term_date
+      # tell them why it didn't work
+      flash[:notice] = notranslate error_messages(@term_date)
+      # and redirect
       redirect_to :action => 'index'
     end
   end
 
+  # This is called if the term_date needs deleteing
   def destroy
+    # find the term_date
     @term_date = TermDate.find(params[:id])
+    # and destroy it
     @term_date.destroy
 
+    # tell the user it was destroyed
     flash[:notice] = notranslate 'Term date was deleted'
+    # and redirect
     redirect_to :action => 'index'
   end
 end

@@ -1,2 +1,42 @@
-Upon startup, the default user is "root" with the password "root1234"
+= IT Room
+
+IT room is an application for Llanfyllin-High School which allows the
+teachers there to book IT rooms easily and quickly. The application
+is made with Ruby on Rails, the agile web development toolkit. It
+uses a database for all the information storage so is quick.
+
+== Translations
+
+The whole application was designed to be translatable, so most of the
+user interface can and is translated into Welsh. The system can
+handle many users at a time.
+
+A new translation and current ones can be changed by editing the
+values in config/locales and creating a new file there with the
+2 character language code. Also, you will need to edit the file
+in config called application.rb. At the bottom, add your language
+to the LANGUAGES hash.
+
+== The defualts
+
+Upon startup, the default user is "root" with the password "root1234".
+It is advised that
+
+== License
+
+IT Room is an IT-room booking system for Llanfyllin High-School.
+Copyright (C) 2010-2011 Gwilym Kuiper
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
