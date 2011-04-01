@@ -37,5 +37,6 @@ ItRoom::Application.routes.draw do
   post "admin/auto_book"
 
   post "users/update_language"
+  post "bookings/get_reasons"
 end
 

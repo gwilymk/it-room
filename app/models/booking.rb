@@ -60,5 +60,8 @@ class Booking < ActiveRecord::Base
   validates :room, :presence => true, :valid_space => true
   # makes sure the lesson number is one present in the LESSON_NUMBERS
   validates :lesson_number, :presence => true, :inclusion => {:in => LESSON_NUMBERS.map{|disp,val| val}}
+  validates :reason, :presence => true
+  validates :ict_area, :numericality => true
+  validates :ict_level, :numericality => true
 end
 

@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
-  # This action returns a list of *Rooms* which have enough space on the day, lesson number and number of pupils
+  # This action returns a list of Room objects which have enough space on the day, lesson number and number of pupils
   # specified. This takes into account all the rooms and all the bookings made for that room.
   def search
     # The array of results
@@ -45,6 +45,15 @@ class BookingsController < ApplicationController
         @results << result
       end
     end
+  end
+
+  def get_reasons
+    @result = {}
+    @result[:room_id] = params[:room].to_i
+    @result[:user_id] = session[:user_id]
+    @result[:date] = format_date(params[:date]).to_date
+    @result[:number_of_computers] = params[:number_of_computers].to_i
+    @result[:lesson_number] = params[:lesson_number].to_i
   end
 
   # This action is called when the booking is acctually made. It will take some values from the params
