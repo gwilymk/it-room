@@ -59,6 +59,10 @@ class User < ActiveRecord::Base
       self.password = users_password
       # send an email to the user telling them their password etc.
       Notifier.password_notification(self, users_password).deliver
+
+      puts users_password
+
+      self.save!
     end
   end
 
