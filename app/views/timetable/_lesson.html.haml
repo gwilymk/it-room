@@ -1,0 +1,4 @@
+%tr
+  %td
+    = link_to User.find(booking.user_id).name, timetable_show_reason_path(:id => booking.id), :remote => true
+  %td= booking.number_of_computers.to_s

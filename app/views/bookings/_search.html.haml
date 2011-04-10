@@ -12,7 +12,7 @@
           %td.data-2= result[:places]
           %td.data-1
             %p
-              = form_tag '/bookings/get_reason' do
+              = form_tag '/bookings/get_reasons', :remote => true do
                 = hidden_field_tag :room, result[:room_id]
                 = hidden_field_tag :date, result[:date]
                 = hidden_field_tag :number_of_computers, result[:number_of_computers]

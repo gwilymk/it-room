@@ -4,7 +4,7 @@
 cy:
   date:
     formats:
-      default: "%d-%m-%Y"
+      default: "%d/%m/%Y"
       short: "%b %d"
       long: "%B %d, %Y"
 
@@ -315,7 +315,7 @@ cy:
   welcome:
     index:
       welcome: "Croeso"
-      message: "This is my awesome IT room booking system."
+      message: "Dyma fy System Bwcio TG amhygoel."
 
       info: "Mae hi’n wythnos %{week} gyda %{days} diwrnod yn weddill cyn diwedd y tymor."
 

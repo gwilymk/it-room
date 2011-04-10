@@ -1,0 +1,24 @@
+:javascript
+  $('#ict-area').change(function() {
+    $.post("/bookings/call_ids_by_type?selected=" + escape($('#ict-area').find('option:selected').val()), function(data) {
+      $('#updater').html(data);
+    });
+  });
+
+#dialog_contents
+  %p= I18n.t('booking.reasons.title')
+  = form_tag :action => :book do
+    = hidden_field_tag :room, @result[:room_id]
+    = hidden_field_tag :date, @result[:date]
+    = hidden_field_tag :number_of_computers, @result[:number_of_computers]
+    = hidden_field_tag :lesson_number, @result[:lesson_number]
+
+    %label{:for => :reason}= I18n.t('booking.reasons.reason')
+    = text_field_tag :reason
+
+    %br
+
+    = select_tag :ict_area, options_for_select(I18n.t('ict_areas').map {|key,value| [value[:name], key]}), :include_blank => I18n.t('booking.reasons.select'), :id => 'ict-area'
+
+    #updater
+

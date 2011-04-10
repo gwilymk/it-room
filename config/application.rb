@@ -41,6 +41,11 @@ module ItRoom
   end
 end
 
+ICT_AREAS = {
+  'communication' => ['4 - Creating documents or presentations using text and/or pictures', '5 - Planning documents or presentations, creating them and improving them', '6 - kajsdkjh', '7 - kjnkjhkjh'],
+  'data handling' => ['4 - asd;flkjasd;flkjas', '5 - searching for informatio using the interent and/or a range of sources and considering if the information is useful or setting up a database and searching it', '6 - ksjdfaskdjf', '7 - dskjfaksdjf']
+}
+
 LANGUAGES = {
   'English' => 'en',
   'Cymraeg' => 'cy'

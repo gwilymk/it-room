@@ -244,6 +244,11 @@ en:
 
     places_remaining: "%{number} places remaining"
 
+    reason:
+      reason: "Reason for booking"
+      ict_area: "ICT Target Area"
+      ict_level: "ICT Target Level"
+
   layout:
     header:
       title: "Llanfyllin High School IT Room Booking"
@@ -301,6 +306,12 @@ en:
     auto_book:
       made: "You made a booking at %{time}"
 
+    reasons:
+      title: "Please enter the reason for your booking eg. create a presention on the Battle of Hastings OR creating population graphs"
+      select: "Please select"
+      reason: "Reason:"
+      no_reason: "No reason for booking was given"
+
   application:
     authorize:
       not_authorized: "You are not authorized to access this URL"
@@ -330,4 +341,21 @@ en:
 
       week_change: "Week not correct?"
       end_of_term_change: "End of term not correct?"
+
+  ict_areas:
+    1:
+      name: "Communication"
+      levels:
+        4: "4 - Creating documents or presentations using text and/or pictures"
+        5: "5 - Planning documents or presentations, creating them and improving them"
+        6: "6 - askjdfskdhfaskjdfhaksdfaeruforfawkfhawke"
+        7: "7 - asdkufadfi7yereroidfvuaasdkdfhaermgfrgoijh"
+
+    2:
+      name: "Data Handling"
+      levels:
+        4: "4 - adsuilaerfalae;riuarg;erjgaskdjfhsefrgkueritguhwsfjgsleriuh"
+        5: "5 - Searching for information using the interent and/or a range of sources and considering if the information is useful or setting up a database and searching it"
+        6: "6 - aerasfkjazdsvfskeurhgsiuhoq78yvbalweiufycblaiudwfhal,ksjdbflaeiuylaiurhsldfuhv,zsdjfhgsldhslfrghskurhtlweurh"
+        7: "7 - saafkfai7erytwkjhdfadf,jhdflujshdfglsiufhgasdhfvbsdliufyglsdfhalsh"
 

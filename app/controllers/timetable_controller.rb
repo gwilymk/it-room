@@ -56,5 +56,13 @@ class TimetableController < ApplicationController
       render "show", :layout => false
     end
   end
+
+  def show_reason
+    booking = Booking.find(params[:id])
+
+    @reason = booking.reason
+    @ict_area = I18n.t("ict_areas")[booking.ict_area][:name]
+    @ict_level = I18n.t("ict_areas")[booking.ict_area][:levels][booking.ict_level]
+  end
 end
 

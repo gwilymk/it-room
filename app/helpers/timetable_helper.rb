@@ -24,13 +24,10 @@ module TimetableHelper
     # each booking
     bookings.each do |booking|
       # generate the HTML
-      @result << "<tr>"
-      @result << "<td>" << User.find(booking.user_id).name << "</td>"
-      @result << "<td>" << booking.number_of_computers.to_s << "</td>"
+      @result << render(:partial => 'timetable/lesson', :locals => {:booking => booking})
 
       # deduct from the computers remaining
       computers_remaining -= booking.number_of_computers
-      @result < "</tr>"
     end
 
     # if computers_remaining isn't nil

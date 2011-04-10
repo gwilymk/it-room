@@ -37,7 +37,7 @@ module ApplicationHelper
   # This returns a simple un-ordered list with all the error messages for an item. This is
   # mainly used in the database access things as it returns a simple list in HTML form which
   # can be rendered by a web page
-  def error_messages thing
+  def error_messages thing, *args
     # start the notice with the word error (translated)
     notice = I18n.t("errors.error")
     # start the unordered list
@@ -46,6 +46,12 @@ module ApplicationHelper
     thing.errors.full_messages.each do |msg|
       # and add a list item for each one
       notice << "<li>" << msg << "</li>"
+    end
+
+    unless args.blank?
+      args.each do |msg|
+        notice << "<li>" << msg << "</li>"
+      end
     end
 
     # terminate the list
