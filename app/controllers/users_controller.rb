@@ -181,12 +181,8 @@ class UsersController < ApplicationController
       # generate the forgotten_password_key for the user
       @key = @user.generate_forgotten_password_key
 
-      begin
-        # and send them an email with the password on it
-        Notifier.forgotten_password(@user, @key).deliver
-      rescue
-        puts "Failed to send password"
-      end
+      # and send them an email with the password on it
+      Notifier.forgotten_password(@user, @key).deliver
 
       # tell the user the email was sent
       flash[:notice] = 'admin.login.sent_forgotten_password_message'
