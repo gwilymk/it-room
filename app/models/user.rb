@@ -140,7 +140,7 @@ class User < ActiveRecord::Base
     # and hash it. This would be long and complicated and also difficult to hack
     hash = Digest::SHA1.hexdigest string_to_hash
 
-    self.forgotten_password_key = hash
+    self.update_attributes(:forgotten_password_key => hash)
 
     # return the hash
     hash
