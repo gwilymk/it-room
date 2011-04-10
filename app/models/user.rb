@@ -54,16 +54,18 @@ class User < ActiveRecord::Base
       # create a new salt for the password
       create_new_salt
       # create a random password
-      users_password = Digest::SHA1.hexdigest(rand.to_s)[0,7]
+      @users_password = Digest::SHA1.hexdigest(rand.to_s)[0,7]
       # and set the password
-      self.password = users_password
+      self.password = @users_password
       # send an email to the user telling them their password etc.
-      Notifier.password_notification(self, users_password).deliver
-
-      puts users_password
+      puts @users_password
 
       self.save!
     end
+  end
+
+  after_validation :on => :create do
+    Notifier.password_notification(self, @users_password).deliver if @users_password
   end
 
   validates :username, :uniqueness => true, :presence => true
