@@ -213,9 +213,11 @@ class UsersController < ApplicationController
         redirect_to root_path
       else
         # else tell them that there was an error for setting the password incorrectly
-        flash[:notice] = 'errors.error'
+        flash.now[:notice] = 'errors.error'
         render :action => 'forgotten_password'
       end
+    else
+      render :action => 'forgotten_password'
     end
   end
 end
