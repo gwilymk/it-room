@@ -183,7 +183,7 @@ class UsersController < ApplicationController
 
       begin
         # and send them an email with the password on it
-        Notifier.password_notification(@user, @key).deliver
+        Notifier.forgotten_password(@user, @key).deliver
       rescue
         puts "Failed to send password"
       end
