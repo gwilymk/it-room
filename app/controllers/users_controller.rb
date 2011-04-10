@@ -197,7 +197,10 @@ class UsersController < ApplicationController
   def update_password
     # if the key parameter isn't given, don't do anything. This is very important as without this line
     # of code, the user will be able to change the password of any user by entering no key.
-    return unless params[:key]
+    unless params[:key]
+      redirect_to root_path
+      return
+    end
 
     # If the user with the forgotten password key is found
     if @user = User.find_by_forgotten_password_key(params[:key])
