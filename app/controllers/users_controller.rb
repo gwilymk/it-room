@@ -220,7 +220,7 @@ class UsersController < ApplicationController
         render :action => 'forgotten_password'
       end
     else
-      flash[:notice] = 'Password key was wrong'
+      flash[:notice] = notranslate 'Password key was wrong'
       redirect_to root_path
     end
   end
