@@ -80,10 +80,7 @@ $(document).ready(function() {
     animate: "slow",
     value: 10,
     slide: function(event, ui) {
-        $('.nop').val($('#nop-slider').slider("value"));
-    },
-    change: function(event, ui) {
-        $('.nop').val($('#nop-slider').slider("value"));
+        $('.nop').val(ui.value);
     }
   });
 

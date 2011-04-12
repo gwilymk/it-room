@@ -18,6 +18,8 @@
 
     %br
 
+    %label{:for => :ict_area}= I18n.t('booking.reasons.area')
+    %br
     = select_tag :ict_area, options_for_select(I18n.t('ict_areas').map {|key,value| [value[:name], key]}), :include_blank => I18n.t('booking.reasons.select'), :id => 'ict-area'
 
     #updater

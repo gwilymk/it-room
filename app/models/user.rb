@@ -57,14 +57,13 @@ class User < ActiveRecord::Base
       @users_password = Digest::SHA1.hexdigest(rand.to_s)[0,7]
       # and set the password
       self.password = @users_password
-      # send an email to the user telling them their password etc.
-      puts @users_password
 
       self.save!
     end
   end
 
   after_validation :on => :create do
+    # send an email to the user telling them their password etc.
     Notifier.password_notification(self, @users_password).deliver if @users_password
   end
 
