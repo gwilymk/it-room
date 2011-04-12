@@ -18,6 +18,10 @@ class TermDate < ActiveRecord::Base
   validates :term_begin, :date => true
   validates :term_end, :date => true
 
+  before_destroy do
+    Booking.where("date >= ? AND date <= ?", self.term_begin, self.term_end).destroy_all
+  end
+
   # This returns a new empty term with the start and end today and the week starting with 1.
   # This is mainly used to stop jQuery-ui from crashing and also in term_for
   def self.default_term
