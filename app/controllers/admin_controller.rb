@@ -93,7 +93,7 @@ class AdminController < ApplicationController
           # adds a very informative list item to the message
           @message << "<li>" + I18n.t('booking.auto_book.made', :time => "#{date.strftime('%d/%m/%Y')}") + "</li>"
           # save the booking
-          booking.save
+          booking.save!
         end
 
         # set the search date to the day after
