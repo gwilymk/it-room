@@ -51,7 +51,7 @@ class TermDate < ActiveRecord::Base
   # Works out the last term in terms of date or returns the default term
   def self.last_term
     # if the term date isn't fount, return the default one
-    TermDate.order('term_end').last || TermDate.default_term
+    TermDate.order('term_end ASC').last || TermDate.default_term
   end
 
   # Returns the current week number for date _date_

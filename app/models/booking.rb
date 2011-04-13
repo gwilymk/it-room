@@ -7,7 +7,7 @@ class ValidDateValidator < ActiveModel::EachValidator
 
   # Validate each is a method which needs to be overwritten.
   def validate_each record, attribute, value
-    unless Date.today <= record.date && record.date <= TermDate.term_for(Date.today).term_end
+    unless Date.today <= record.date && record.date <= TermDate.term_for(record.date).term_end
       record.errors.add attribute, I18n.t('activerecord.errors.messages.invalid_date')
     end
   end
