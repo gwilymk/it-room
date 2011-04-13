@@ -91,9 +91,7 @@ class AdminController < ApplicationController
           # set the booking's date the the current one
           booking.date = date
           # adds a very informative list item to the message
-          @message << "<li>" + I18n.t('booking.auto_book.made', :time => "#{date.strftime('%d/%m/%Y')}") + "</li>"
-          # save the booking
-          booking.save!
+          @message << "<li>" + I18n.t('booking.auto_book.made', :time => "#{date.strftime('%d/%m/%Y')}") + "</li>" if booking.save
         end
 
         # set the search date to the day after
