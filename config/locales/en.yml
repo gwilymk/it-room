@@ -350,7 +350,7 @@ en:
       levels:
         4: "4 - Creating documents or presentations using text and/or pictures"
         5: "5 - Planning documents or presentations, creating them and improving them"
-        6: "6 - Create documents or presentations in for different audiences and refine these"
+        6: "6 - Create documents or presentations for different audiences and then improving these"
         7: "7 - Thoroughly plan documents or presentations. Refine presentation and information to meet the audience's needs"
 
     2:
@@ -358,17 +358,22 @@ en:
       levels:
         4: "4a - Research information from many websites"
         5: "4b - Adding and changing records in a database"
-        6: "5a - Searching for information using the interent and/or a range of sources and considering if the information is useful"
+        6: "5a - Searching for information using the internet sites and considering if the information is useful"
         7: "5b - Setting up a database and sorting it"
-        8: "6a - Comparing sources of internet information and choosing the most suitable for purpose"
+        8: "6a - Comparing internet information and choosing the most suitable for a task"
         9: "6b - Complex searches on databases"
-        10: "7 - saafkfai7erytwkjhdfadf,jhdflujshdfglsiufhgasdhfvbsdliufyglsdfhalsh"
+        10: "7 - Design and make a complete functioning database"
 
     3:
       name: "Modelling"
       levels:
-        4: "4 - akjafksdfasdkfjlasdfkjasdflasdfow4roi9eruadfjnvdcnvasdkfhwefiuhqrkjnefkjvheflkjhqetmndf;hdv"
-        5: "5 - ajkasdflkjasfdljadsfluhpy845tur.j.jkbaf45ruh.iaef.r;uiafluhfruhlluhewrluhewtlugluhbdfsgjesrerkljeliuwhergslkdfjbvdjb"
-        6: "6 - sf.jkkuhfgluiaeriybavtobavryibwrauiewrailuafhelaksdfjba dflkadshfasd lfseliruhselruihsgl sli uhgsliurglisug"
-        7: "7 - afsdhfu8w398efjdwfkjdv efldfijaoeifjaoijfawlekrnlaekaoerijaoweijoaierjfladskfngwlaekjfsleirj"
+        4: "4 - Investigating changing data in a spreadsheet"
+        5: "5 - Create a spreadsheet and investigating changing data in it"
+        6: "6 - Using spreadsheets to test hypotheses"
+        7: "7 - Design and make a spreadsheet to meet the needs of a complex, real life situation."
+
+    4:
+      name: "Other"
+      levels:
+        1: "None of the avaliable options"
 

@@ -14,7 +14,7 @@
     = hidden_field_tag :lesson_number, @result[:lesson_number]
 
     %label{:for => :reason}= I18n.t('booking.reasons.reason')
-    = text_field_tag :reason
+    = text_area_tag :reason
 
     %br
 

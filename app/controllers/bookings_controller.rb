@@ -56,8 +56,6 @@ class BookingsController < ApplicationController
   end
 
   def call_ids_by_type
-    puts session
-
     @element_list = I18n.t('ict_areas')[params[:selected].to_i][:levels].map { |key, value| [value, key] }.sort unless params[:selected].blank?
 
     render :layout => false
