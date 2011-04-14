@@ -13,6 +13,8 @@ group :test, :development do
   gem 'mysql'
 end
 
+gem 'rack-ssl-enforcer'
+
 gem 'haml'
 
 gem 'date_validator'
