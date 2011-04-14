@@ -109,7 +109,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
 
     # if the booking belongs to the user and it is successfully destroyed
-    if @booking.user_id == session[:user_id] && @booking.destroy
+    if @booking.user_id == session[:user_id].to_i && @booking.destroy
       # tell them so
       flash[:notice] = "booking.delete.deleted"
     else
