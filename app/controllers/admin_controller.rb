@@ -77,7 +77,11 @@ class AdminController < ApplicationController
       @booking.lesson_number = params[:lesson_number]
 
       # sets the number of computers to the number in the room requested
-      @booking.number_of_computers = Room.find(params[:room]).number_of_computers
+      if params[:fully_book]
+        @booking.number_of_computers = Room.find(params[:room]).number_of_computers
+      else
+        @booking.number_of_computers = params[:number_of_computers]
+      end
 
       # caches the last day of the last term
       last_day = TermDate.last_term.term_end.to_date
@@ -95,7 +99,7 @@ class AdminController < ApplicationController
         end
 
         # set the search date to the day after
-        date = date.tomorrow
+        date += 1.day
       end
 
       # finish the unordered list

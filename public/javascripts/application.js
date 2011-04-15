@@ -127,5 +127,15 @@ $(document).ready(function() {
   $(document).bind('keydown', 'alt+g', function() {
     $('#search_users').focus();
   });
+
+  $('#fully_book').click(function() {
+    if($('#fully_book:checked').val() !== undefined) {
+      $('.nop-stuff').attr('disabled', true);
+      $('#nop-slider').slider('option', 'disabled', true);
+    } else {
+      $('.nop-stuff').attr('disabled', false);
+      $('#nop-slider').slider('option', 'disabled', false);
+    }
+  });
 });
 

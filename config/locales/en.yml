@@ -334,6 +334,8 @@ en:
       day: "Day"
       submit: "Go!"
 
+      fully_book: "Fully book room?"
+
   welcome:
     index:
       welcome: "Welcome"
