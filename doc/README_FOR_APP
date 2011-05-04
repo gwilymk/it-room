@@ -20,7 +20,10 @@ to the LANGUAGES hash.
 == The defualts
 
 Upon startup, the default user is "root" with the password "root1234".
-It is advised that
+It is advised that you create a new root user and delete the original
+as this is more secure. It is more secure because then a hacker must
+guess the username of the root account and then the password as well
+instead of just the password.
 
 == License
 
