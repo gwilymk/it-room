@@ -15,8 +15,8 @@
 #
 class TermDate < ActiveRecord::Base
   validates :week_start, :presence => true, :numericality => {:only_integer => true}, :inclusion => {:in => 1..2, :message => "Week must be 1 or 2"}
-  validates :term_begin, :date => true
-  validates :term_end, :date => true
+  validates :term_begin, :date => true, :format => /\d{2}\/\d{2}\/\d{4}/
+  validates :term_end, :date => true, :format => /\d{2}\/\d{2}\/\d{4}/
 
   # This returns a new empty term with the start and end today and the week starting with 1.
   # This is mainly used to stop jQuery-ui from crashing and also in term_for

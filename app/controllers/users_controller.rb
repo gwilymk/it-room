@@ -220,6 +220,10 @@ class UsersController < ApplicationController
         flash[:notice] = 'errors.error'
         render :action => 'forgotten_password'
       end
+    else
+      # else tell them that there was an error for setting the password incorrectly
+      flash[:notice] = 'errors.error'
+      render :action => 'forgotten_password'
     end
   end
 end
