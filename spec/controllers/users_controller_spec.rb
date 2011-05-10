@@ -30,7 +30,7 @@ describe UsersController do
     end
 
     it "should allow access to update" do
-      post :update, {:user => {:name => 'Bob the Builder'}}
+      put :update, {:id => User.find_by_name("Bob Builder").id, :user => {:name => 'Bob the Builder'}}
 
       User.find_by_name('Bob the Builder').id.should == User.first.id
     end
