@@ -215,6 +215,12 @@ cy:
       successful: "Wedi mewngofnodi"
       unsuccessful: "Mewngofnodi wedi methu, ceisiwch eto"
 
+      forgotten_password: "Wedi anghofio'ch cyfrinair?"
+      forgot_password_button: "Danfon"
+      sent_forgotten_password_message: "Mae ebost gyda chyswllt i newid eich cyfrinair wedi ei anfon atoch"
+      username_does_not_exist: "Dydy'r enw defnyddiwr hwn ddim yn bodoli"
+      reset_password: "Mae'ch cyfrinair wedi cael ei ailosod"
+
     logout: "Wedi allgofnodi"
 
   preferences:
@@ -321,4 +327,3 @@ cy:
 
       week_change: "Wythnos anghywir?"
       end_of_term_change: "Diwedd y tymor yn anghywir?"
-
