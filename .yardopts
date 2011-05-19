@@ -1,0 +1,1 @@
+-r doc/README_FOR_APP -o doc/app --protected --private --title 'IT Room' app/**/*.rb
