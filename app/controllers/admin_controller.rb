@@ -67,17 +67,6 @@ class AdminController < ApplicationController
 
       # starts autobooking from today
       date = Date.today
-      # create an empty booking
-      @booking = Booking.new
-      # sets the user_id to the one requested
-      @booking.user_id = params[:user]
-      # sets the room_id to the one requested
-      @booking.room_id = params[:room]
-      # sets the lesson number to the one requested
-      @booking.lesson_number = params[:lesson_number]
-
-      # sets the number of computers to the number in the room requested
-      @booking.number_of_computers = Room.find(params[:room]).number_of_computers
 
       # caches the last day of the last term
       last_day = TermDate.last_term.term_end.to_date
@@ -86,14 +75,23 @@ class AdminController < ApplicationController
       while date <= last_day
         # if that day is the one wanted
         if TermDate.week(date) == params[:week].to_i && date.wday == params[:day].to_i
+          # create an empty booking
+          @booking = Booking.new
+          # sets the user_id to the one requested
+          @booking.user_id = params[:user]
+          # sets the room_id to the one requested
+          @booking.room_id = params[:room]
+          # sets the lesson number to the one requested
+          @booking.lesson_number = params[:lesson_number]
+
+          # sets the number of computers to the number in the room requested
+          @booking.number_of_computers = Room.find(params[:room]).number_of_computers
+
           # duplicate the booking
-          booking = @booking.dup
           # set the booking's date the the current one
-          booking.date = date
+          @booking.date = date
           # adds a very informative list item to the message
-          @message << "<li>" + I18n.t('booking.auto_book.made', :time => "#{date.strftime('%d/%m/%Y')}") + "</li>"
-          # save the booking
-          booking.save
+          @message << "<li>" + I18n.t('booking.auto_book.made', :time => "#{date.strftime('%d/%m/%Y')}") + "</li>" if @booking.save
         end
 
         # set the search date to the day after

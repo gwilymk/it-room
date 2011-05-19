@@ -70,9 +70,9 @@ class User < ActiveRecord::Base
   # This authenticates the user by searching through the database for the username
   # given and finds if the password given is correct.
   #
-  # params
-  # name The name given
-  # password The password given
+  # @param name The name given
+  # @param password The password given
+  # @return [User] The user object corrisponding, or nil if it failed
   def self.authenticate name, password
     # find the user firstly stripping the username of all whitespaces
     user = self.find_by_username(name.strip)
@@ -107,6 +107,7 @@ class User < ActiveRecord::Base
   end
 
   # This sets the salt to something random
+  # @return [String] the salt
   def create_new_salt
     self.salt = self.object_id.to_s + rand.to_s
   end
@@ -114,9 +115,9 @@ class User < ActiveRecord::Base
   # This function encrypts the password with a 1 way hashing algorithm. This means that
   # someone with db access cannot find out the password of someone.
   #
-  # params
-  # password - the password to hash
-  # salt - the desired salt
+  # @param password the password to hash
+  # @param salt the desired salt
+  # @return [String] the encrypted password
   def self.encrypted_password password, salt
     # adds a random keyboard splat just to make it interesting
     string_to_hash = password + "sl;dkfj" + salt
@@ -134,6 +135,7 @@ class User < ActiveRecord::Base
 
   # This will generate the forgotten password key if someone has forgotten their password. It
   # will generate it with a hexdigest command (the same as the one in encrypt_password)
+  # @return [String] the password key
   def generate_forgotten_password_key
     # create the string to hash
     string_to_hash = "#{self.hashed_password}sdfasdf#{self.salt}"

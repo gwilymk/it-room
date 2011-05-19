@@ -1,3 +1,4 @@
+
 #
 # This class makes sure that the date for the date of the booking the person is
 # trying to book is within a valid term date.
