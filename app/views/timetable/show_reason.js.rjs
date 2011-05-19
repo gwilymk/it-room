@@ -1,0 +1,3 @@
+page["#dialog_contents"].replace_with(render(:partial => 'reason'))
+page[".button"].button
+page["#dialog_space"].dialog("open")

@@ -181,12 +181,8 @@ class UsersController < ApplicationController
       # generate the forgotten_password_key for the user
       @key = @user.generate_forgotten_password_key
 
-      begin
-        # and send them an email with the password on it
-        Notifier.password_notification(@user, @key).deliver
-      rescue
-        puts "Failed to send password"
-      end
+      # and send them an email with the password on it
+      Notifier.forgotten_password(@user, @key).deliver
 
       # tell the user the email was sent
       flash[:notice] = 'admin.login.sent_forgotten_password_message'
@@ -201,7 +197,10 @@ class UsersController < ApplicationController
   def update_password
     # if the key parameter isn't given, don't do anything. This is very important as without this line
     # of code, the user will be able to change the password of any user by entering no key.
-    return unless params[:key]
+    unless params[:key]
+      redirect_to root_path
+      return
+    end
 
     # If the user with the forgotten password key is found
     if @user = User.find_by_forgotten_password_key(params[:key])
@@ -217,7 +216,7 @@ class UsersController < ApplicationController
         redirect_to root_path
       else
         # else tell them that there was an error for setting the password incorrectly
-        flash[:notice] = 'errors.error'
+        flash.now[:notice] = 'errors.error'
         render :action => 'forgotten_password'
       end
     else

@@ -1,4 +1,4 @@
-- form_tag do
+= form_tag do
   %h3= I18n.t('admin.login.message')
 
   %table#login_table
@@ -16,7 +16,7 @@
       %td{:colspan => 2}= submit_tag I18n.t('admin.login.login'), :class => 'button'
 
 #forgotten_password_dialog{:title => I18n.t('admin.login.forgotten_password')}
-  - form_tag users_forgotten_password_path do
+  = form_tag users_forgotten_password_path do
     %table#login_table
       %tr
         %td

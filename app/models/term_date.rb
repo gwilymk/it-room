@@ -18,6 +18,10 @@ class TermDate < ActiveRecord::Base
   validates :term_begin, :date => true, :format => /\d{2}\/\d{2}\/\d{4}/
   validates :term_end, :date => true, :format => /\d{2}\/\d{2}\/\d{4}/
 
+  before_destroy do
+    Booking.where("date >= ? AND date <= ?", self.term_begin, self.term_end).destroy_all
+  end
+
   # This returns a new empty term with the start and end today and the week starting with 1.
   # This is mainly used to stop jQuery-ui from crashing and also in term_for
   def self.default_term
@@ -47,7 +51,7 @@ class TermDate < ActiveRecord::Base
   # Works out the last term in terms of date or returns the default term
   def self.last_term
     # if the term date isn't fount, return the default one
-    TermDate.order('term_end').last || TermDate.default_term
+    TermDate.order('term_end ASC').last || TermDate.default_term
   end
 
   # Returns the current week number for date _date_

@@ -85,17 +85,31 @@ class AdminController < ApplicationController
           @booking.lesson_number = params[:lesson_number]
 
           # sets the number of computers to the number in the room requested
-          @booking.number_of_computers = Room.find(params[:room]).number_of_computers
+      if params[:fully_book]
+        @booking.number_of_computers = Room.find(params[:room]).number_of_computers
+      else
+        @booking.number_of_computers = params[:number_of_computers]
+      end
 
+      # caches the last day of the last term
+      last_day = TermDate.last_term.term_end.to_date
+
+      # until the end of the last term
+      while date <= last_day
+        # if that day is the one wanted
+        if TermDate.week(date) == params[:week].to_i && date.wday == params[:day].to_i
           # duplicate the booking
+          booking = @booking.dup
           # set the booking's date the the current one
           @booking.date = date
           # adds a very informative list item to the message
-          @message << "<li>" + I18n.t('booking.auto_book.made', :time => "#{date.strftime('%d/%m/%Y')}") + "</li>" if @booking.save
+          @message << "<li>" + I18n.t('booking.auto_book.made', :time => "#{date.strftime('%d/%m/%Y')}") + "</li>" if booking.save
+          # save the booking
+          booking.save
         end
 
         # set the search date to the day after
-        date = date.tomorrow
+        date += 1.day
       end
 
       # finish the unordered list

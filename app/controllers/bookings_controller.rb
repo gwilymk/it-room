@@ -4,14 +4,14 @@
 #
 class BookingsController < ApplicationController
   # Make sure that a user is acctulally logged in
-  before_filter :auth1
+  before_filter :auth1, :except => :call_ids_by_type
 
   # Shows the page which the user can make the bookings with. This is routes to /bookings
   def index
     @booking = Booking.new
   end
 
-  # This action returns a list of *Rooms* which have enough space on the day, lesson number and number of pupils
+  # This action returns a list of Room objects which have enough space on the day, lesson number and number of pupils
   # specified. This takes into account all the rooms and all the bookings made for that room.
   def search
     # The array of results
@@ -47,6 +47,20 @@ class BookingsController < ApplicationController
     end
   end
 
+  def get_reasons
+    @result = {}
+    @result[:room_id] = params[:room].to_i
+    @result[:date] = format_date(params[:date]).to_date
+    @result[:number_of_computers] = params[:number_of_computers].to_i
+    @result[:lesson_number] = params[:lesson_number].to_i
+  end
+
+  def call_ids_by_type
+    @element_list = I18n.t('ict_areas')[params[:selected].to_i][:levels].map { |key, value| [value, key] }.sort unless params[:selected].blank?
+
+    render :layout => false
+  end
+
   # This action is called when the booking is acctually made. It will take some values from the params
   # and create a booking from it.
   def book
@@ -60,14 +74,24 @@ class BookingsController < ApplicationController
     @booking.number_of_computers = params[:number_of_computers].to_i
     @booking.lesson_number = params[:lesson_number].to_i
 
+
+    @booking.reason = params[:reason]
+    @booking.ict_area = params[:ict_area].to_i
+    @booking.ict_level = params[:level].to_i
+
     # if the save was successfull
-    if @booking.save
+    if !@booking.reason.blank? && @booking.save
       # tell the user it was
-      flash[:notice] = "booking.book.success"
+      flash[:notice] = I18n.t("booking.book.success")
     else
       # or wasn't
-      flash[:notice] = "booking.book.not_success"
+      flash[:notice] = I18n.t("booking.book.not_success")
+      # and why
+
+      flash[:notice] << "<br />" << error_messages(@booking, I18n.t('booking.reasons.no_reason'))
     end
+
+    flash[:notice] = notranslate(flash[:notice])
 
     # redirect them to the index URL (e.g. /bookings or where they started)
     redirect_to :action => 'index'
@@ -85,7 +109,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
 
     # if the booking belongs to the user and it is successfully destroyed
-    if @booking.user_id == session[:user_id] && @booking.destroy
+    if @booking.user_id == session[:user_id].to_i && @booking.destroy
       # tell them so
       flash[:notice] = "booking.delete.deleted"
     else
@@ -97,4 +121,3 @@ class BookingsController < ApplicationController
     redirect_to bookings_my_bookings_path
   end
 end
-

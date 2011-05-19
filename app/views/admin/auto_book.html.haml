@@ -16,6 +16,13 @@
       %th= I18n.t('auto_book.form.day')
       %th
         = select_tag :day, I18n.t('date.day_names').map_with_index{|day, i| "<option value=#{i}>#{day}</option>" unless i == 0 || i == 6}.compact.join.html_safe
-      %th
-        = submit_tag I18n.t('auto_book.form.submit'), :class => 'button'
+      %th{:rowspan => 2}= submit_tag I18n.t('auto_book.form.submit'), :class => 'button'
 
+    %tr
+      %th
+        = I18n.t('auto_book.form.fully_book')
+        = check_box_tag :fully_book
+      %th= I18n.t('booking.index.number_of_pupils')
+      %th{:colspan => 8}
+        = text_field_tag :number_of_computers, "10", :class => 'nop nop-stuff', :style => 'width: 100%'
+        #nop-slider.nop-stuff

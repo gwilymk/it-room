@@ -36,12 +36,12 @@ class ApplicationController < ActionController::Base
   # the variable _@bookings_today_ to the bookings.
   def get_bookings
     # if the user is logged on
-  	if session[:user_id]
-  	  # set the variable @bookings_today to the bookings where the user is the current logged on
-  	  # user and the date is today. Also, this orders them by the lesson number for the convenience
-  	  # of the user
-  		@bookings_today = Booking.where(:user_id => session[:user_id], :date => Date.today).order(:lesson_number)
-  	end
+    if session[:user_id]
+      # set the variable @bookings_today to the bookings where the user is the current logged on
+      # user and the date is today. Also, this orders them by the lesson number for the convenience
+      # of the user
+      @bookings_today = Booking.where(:user_id => session[:user_id], :date => Date.today).order(:lesson_number)
+    end
   end
 
   # This makes sure the user has an access level greater than _access_

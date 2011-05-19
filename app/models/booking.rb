@@ -8,7 +8,7 @@ class ValidDateValidator < ActiveModel::EachValidator
 
   # Validate each is a method which needs to be overwritten.
   def validate_each record, attribute, value
-    unless Date.today <= record.date && record.date <= TermDate.term_for(Date.today).term_end
+    unless Date.today <= record.date && record.date <= TermDate.term_for(record.date).term_end
       record.errors.add attribute, I18n.t('activerecord.errors.messages.invalid_date')
     end
   end
@@ -61,5 +61,8 @@ class Booking < ActiveRecord::Base
   validates :room, :presence => true, :valid_space => true
   # makes sure the lesson number is one present in the LESSON_NUMBERS
   validates :lesson_number, :presence => true, :inclusion => {:in => LESSON_NUMBERS.map{|disp,val| val}}
+  #validates :reason, :presence => true
+  #validates :ict_area, :numericality => true
+  #validates :ict_level, :numericality => true
 end
 

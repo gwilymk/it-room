@@ -37,5 +37,9 @@ ItRoom::Application.routes.draw do
   post "admin/auto_book"
 
   post "users/update_language"
+  post "bookings/get_reasons"
+  post "/bookings/call_ids_by_type"
+
+  get "timetable/show_reason/:id", :to => "timetable#show_reason", :as => "timetable_show_reason"
 end
 

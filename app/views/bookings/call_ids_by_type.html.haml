@@ -1,0 +1,11 @@
+:javascript
+  $('.button').button();
+
+- if @element_list
+  %label{:for => :level}= I18n.t('booking.reasons.level')
+  %br
+  = select_tag 'level', options_for_select(@element_list)
+
+  %br
+  = submit_tag I18n.t('booking.search.book'), :class => 'button'
+

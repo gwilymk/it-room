@@ -80,10 +80,7 @@ $(document).ready(function() {
     animate: "slow",
     value: 10,
     slide: function(event, ui) {
-        $('.nop').val($('#nop-slider').slider("value"));
-    },
-    change: function(event, ui) {
-        $('.nop').val($('#nop-slider').slider("value"));
+        $('.nop').val(ui.value);
     }
   });
 
@@ -129,6 +126,16 @@ $(document).ready(function() {
 
   $(document).bind('keydown', 'alt+g', function() {
     $('#search_users').focus();
+  });
+
+  $('#fully_book').click(function() {
+    if($('#fully_book:checked').val() !== undefined) {
+      $('.nop-stuff').attr('disabled', true);
+      $('#nop-slider').slider('option', 'disabled', true);
+    } else {
+      $('.nop-stuff').attr('disabled', false);
+      $('#nop-slider').slider('option', 'disabled', false);
+    }
   });
 });
 
